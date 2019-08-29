@@ -1,0 +1,179 @@
+********************************Commands Windows Git***********************************
+**************************SOLUCION ERROR ARCHIVOS LARGOS*****************************
+git config --system core.longpaths true
+**************************************************************************************
+************LARAVEL***************
+INSTALAR COMPOSER
+INSTALAR XAMPP
+
+****verificar composer***
+cmd-> composer --version
+****instalar proyecto****
+cd xampp/htdocs
+composer create-project --prefer-dist laravel/laravel MiLaravel
+*************************
+subir proyecto
+cd MiLaravel
+php artisan serve 
+o se puede acceder desde el xampp -> http://localhost:8080/MiLaravel/public/
+****Crear migraciones**********
+cambiar el archivo .env y el archivo->config/database.php y descomentariar la linea en php.ini pg para postgresql
+--- despues crear la tabla de migraciones con: php artisan migrate:install
+---Para borrar todas las tablas de la base de datos y luego volverlas a crear:
+php artisan migrate:refresh
+--Para eliminar todas las tablas:
+php artisan migrate:reset
+--Permite deshacer el último grupo de migraciones ejecutadas:
+php artisan migrate:rollback
+--Para ver el estatus de cada migración:
+php artisan migrate:status
+--Para creacion de una migracion:
+php artisan make:migration create_categories_table
+--Para ejecutar las nuevas migraciones creadas:
+php artisan migrate
+-----
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateEstudiantesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('estudiantes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('correo');
+            $table->string('password');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('estudiantes');
+    }
+}
+******************************
+******MODELO*****************
+php artisan make:model EstudiantesModel
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class EstudiantesModel extends Model
+{
+    protected $table = 'estudiantes';
+    protected $fillable = ['nombre','apellido','correo','password'];
+}
+
+*******************************
+*********Controller***********
+
+php artisan make:controller EstudianteController
+--
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\EstudiantesModel;
+use DB;
+
+class EstudianteController extends Controller
+{
+
+	public function index(){
+    	$Estudiantes = EstudiantesModel::all();
+    	if(!empty($Estudiantes)){
+    		return response()->json(['CODE' => 'OK','DATA' => $Estudiantes]);
+    	}else{
+    		return response()->json(['CODE' => 'ERROR','message' => 'No hay Estudiantes en la BD']);
+    	}
+    }
+
+    public function create(Request $request){
+
+    	if(!empty($request)){
+    		foreach ($request->all() as $req){
+
+	    		$Estudiantes = new EstudiantesModel();
+		    	$Estudiantes->nombre = $req['nombre'];
+		    	$Estudiantes->apellido = $req['apellido'];
+		    	$Estudiantes->correo = $req['correo'];
+		    	$Estudiantes->password = $req['password'];
+		    	$Estudiantes->save();
+	    	}
+    	
+
+    		return response()->json(['CODE' => 'OK','message' => 'Insercion exitosa']);
+    	}else{
+    		return response()->json(['CODE' => 'ERROR','message' => 'No envio ningun estudiante']);
+    	}
+    }
+
+    public function show($id){
+
+    	$Estudiante=EstudiantesModel::find($id);
+    	//Para consultas mas Aji
+    	//$Estudiante = DB::select(DB::raw("select * from estudiantes"));
+    	if(!empty($Estudiante)){
+    		return response()->json(['CODE' => 'OK','DATA' => $Estudiante]);
+    	}else{
+    		return response()->json(['CODE' => 'ERROR','message' => 'No existe el estudiante BD']);
+    	}
+    }
+
+    public function update(Request $request,$id){
+      	$Estudiante=EstudiantesModel::find($id);
+  		
+    	if(!empty($Estudiante)){
+    		foreach ($request->all() as $req){
+    			$nombre = $req['nombre'];
+		    	$apellido = $req['apellido'];
+		    	$correo = $req['correo'];
+		    	$password = $req['password'];
+			}
+	    	$Estudiante->nombre = $nombre;
+	    	$Estudiante->apellido = $apellido;
+	    	$Estudiante->correo = $correo;
+	    	$Estudiante->password = $password;
+	    	$Estudiante->save();
+    		return response()->json(['CODE' => 'OK','DATA' => 'Actualizacion Exitosa']);
+    	}else{
+    		return response()->json(['CODE' => 'ERROR','message' => 'No existe el estudiante BD']);
+    	}
+    }
+
+    public function delete($id){
+
+    	$Estudiante=EstudiantesModel::find($id);
+  		
+    	if(!empty($Estudiante)){
+    		EstudiantesModel::destroy($id);
+    		return response()->json(['CODE' => 'OK','DATA' => 'Estudiante eliminado con exito']);
+    	}else{
+    		return response()->json(['CODE' => 'ERROR','message' => 'No existe el estudiante BD']);
+    	}
+    }
+
+    
+}
+************ROUTE*******************
+routes->api.php
+
+Route::get('/estudiante','EstudianteController@index');
+Route::post('/estudiante','EstudianteController@create');
+Route::get('/estudiante/{id?}','EstudianteController@show');
+Route::put('/estudiante/{id?}','EstudianteController@update');
+Route::delete('/estudiante/{id?}','EstudianteController@delete');
