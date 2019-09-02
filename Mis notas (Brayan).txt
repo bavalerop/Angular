@@ -6,3 +6,25 @@ abrir cmd
 --ng new my-dream-app
 --cd my-dream-app
 --ng serve
+************Visual Studio Code*******************************
+
+Plugins recomendados para Visual Studio Code:
+=============================================
+
+• Angular 2 TypeScript Emmet
+• Angular 7 Snippets – TypeScript, Html, Angular Material...
+• Angular Language Service
+• Angular v7 Snippets
+• Angular2-inline
+• Bootstrap 4 & Font Awesome snippets
+• HTML CSS Support
+• JavaScript (ES6) code snippets
+• JS-CSS-HTML Formatter
+• JSHint
+• Material Icon Theme
+• Prettier – Code Formatter
+• Terminal
+• TSLint
+• TypeScript Hero
+• TypeScript Importer
+*****************************************************************
