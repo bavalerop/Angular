@@ -28,3 +28,16 @@ Plugins recomendados para Visual Studio Code:
 • TypeScript Hero
 • TypeScript Importer
 *****************************************************************
+***********Error de Instalacion de angular****************
+Actualizar node
+y actualizar cli
+abrir cmd
+--rm -rf carpeta proyecto
+--npm unistall -g angular-cli
+--npm unistall -g @angular/cli
+--npm cache clean
+--npm install -g @angular/cli@latest
+--Volver al paso de instalacion
+*********************************************************
+
+
