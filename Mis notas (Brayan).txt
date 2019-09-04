@@ -49,5 +49,8 @@ abrir cmd
 -- ng g c Components/user --no-spec
 *****************Crear Pipes***********************
 -- ng g pipes Pipes/paginate --no-spec
+*****************Angular material************************
+-- ng add @angular/material
+
 
 
