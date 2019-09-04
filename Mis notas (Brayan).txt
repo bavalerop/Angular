@@ -39,5 +39,15 @@ abrir cmd
 --npm install -g @angular/cli@latest
 --Volver al paso de instalacion
 *********************************************************
+*********************Directivas**************************
+--ngIf y evento Click
+<div *ngIf="variable == true"></div>
+<button (click)="funciion(variable)"></div>
+--ngFor
+*********************************************************
+*****************Crear componentes***********************
+-- ng g c Components/user --no-spec
+*****************Crear Pipes***********************
+-- ng g pipes Pipes/paginate --no-spec
 
 

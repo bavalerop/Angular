@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Estudiante } from '../../Models/estudianteModel';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -7,29 +9,34 @@ import { Component } from '@angular/core';
     styleUrls: ['./crud.component.css']
 })
 export class CrudComponent {
-    public id: number;
-    public nombre: string;
-    public apellido: string;
-    public correo: string;
-    public password: string;
-    public pruebaArray: Array<any>;
+    public page_size: number;
+    public page_number: number;
+    public page_size_options: Array<any>;
+    public title: string;
+    public estudiante: Estudiante;
+    public Estudiantes: Array<Estudiante>;
 
     constructor() {
-        this.id = 0;
-        this.nombre = 'nombre';
-        this.apellido = 'apellido';
-        this.correo = 'correo';
-        this.password = 'password';
-        this.pruebaArray = ['buenas', 'como', 'estan'];
-        console.log(this.pruebaArray);
+        this.page_number = 1;
+        this.page_size = 2;
+        this.page_size_options = [5, 10, 25, 100, 'all'];
+        this.title = 'Estudiantes';
+        this.estudiante = new Estudiante(1, 'brayan', 'valero', 'bavalerop@gmail.com', '123456');
+        this.Estudiantes = [
+            new Estudiante(1, 'Brayan', 'Valero', 'bavalerop@gmail.com', '123456'),
+            new Estudiante(2, 'Brayitan', 'Valero', 'bavalerop@gmail.com', '123456'),
+            new Estudiante(3, 'Brayotan', 'Valero', 'bavalerop@gmail.com', '123456')
+        ];
     }
 
     ngOnInit() {
-        this.holaMundo();
+       // this.holaMundo();
+        console.log(this.Estudiantes);
     }
 
-    holaMundo() {
-        alert('hola mundo');
+    handlePage(e: PageEvent) {
+        this.page_size = e.pageSize;
+        this.page_number = e.pageIndex + 1;
     }
 }
 
