@@ -6,44 +6,46 @@
         <div class="card-header"><i class="fa fa-fw fa-plus-circle"></i><strong>Añadir Hotel</strong> </div>
         <div class="card-body">
             <div class="col-sm-12">
-                <h5 class="card-title">Los campos con <span class="text-danger">*</span> son obligatorios!</h5>
-                <div class="form-group">
-                    <label>NIT<span class="text-danger">*</span></label>
-                    <input type="text" id="hot_nit" class="form-control" placeholder="Ingrese nit" required>
-                </div>
+                <form [formGroup]="hotSaveForm">
 
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" id="hot_name" class="form-control" placeholder="Ingrese nombre">
-                </div>
-
-                <div class="form-group">
-                    <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
-                    <select class="form-control" id="hot_ciudad">
-                        <option *ngFor="let c of Ciudades"> {{c.nombre}} </option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Direccion</label>
-                    <input type="text" id="hot_dir" class="form-control" placeholder="Ingrese direccion">
-                </div>
-
-                <div class="form-group">
-                    <label>Numero de habitaciones</label>
-                    <input type="number" id="hot_canthab" class="form-control" placeholder="Ingrese numero de habitaciones">
-                </div>
-                <div class="row justify-content-center">
-                    <div class="form-group col-ms-3">
-                        <a (click)="navegar('read')" class="btn btn-danger bnt">
-                            <mat-icon>arrow_left</mat-icon>Volver</a>
-                    </div>&nbsp;&nbsp;
-                    <div class="form-group col-ms-3">
-                        <a class="btn btn-info bnt">
-                            <mat-icon>save_alt</mat-icon>Añadir</a>
+                    <h5 class="card-title">Los campos con <span class="text-danger">*</span> son obligatorios!</h5>
+                    <div class="form-group">
+                        <label>NIT<span class="text-danger">*</span></label>
+                        <input [(ngModel)]="hote.nit" type="text" formControlName="nit" class="form-control" placeholder="Ingrese nit" required>
                     </div>
-                </div>
 
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input [(ngModel)]="hote.nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ingrese nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
+                        <select class="form-control" [(ngModel)]="hote.ciudad" formControlName="ciudad" [value]="1">
+                            <option  *ngFor="let c of Ciudades" value="{{c.id}}"> {{c.nombre}} </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Direccion</label>
+                        <input [(ngModel)]="hote.direccion" type="text" formControlName="dir" class="form-control" placeholder="Ingrese direccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Numero de habitaciones</label>
+                        <input [(ngModel)]="hote.cantHab" type="number" formControlName="cantHab" class="form-control" placeholder="Ingrese numero de habitaciones">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-ms-3">
+                            <button (click)="navegar('read')" class="btn btn-danger bnt">
+                                <mat-icon>arrow_left</mat-icon>Volver</button>
+                        </div>&nbsp;&nbsp;
+                        <div class="form-group col-ms-3">
+                            <button [disabled]="hotSaveForm.invalid" class="btn btn-info bnt" (click)="show(hote)">
+                                <mat-icon>save_alt</mat-icon>Añadir</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -88,43 +90,45 @@
             </mat-paginator>
         </div>
     </div>
-    <!-- seccion create -->
+    <!-- seccion update -->
     <div class="card col-sm-6 mx-auto" name="update" id="update" *ngIf="seccion=='update'">
         <div class="card-header"><i class="fa fa-fw fa-plus-circle"></i><strong>Editar Hotel</strong> </div>
         <div class="card-body">
             <div class="col-sm-12">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" id="hot_name" class="form-control" placeholder="Ingrese nombre">
-                </div>
-
-                <div class="form-group">
-                    <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
-                    <select class="form-control" id="hot_ciudad">
-                        <option *ngFor="let c of Ciudades"> {{c.nombre}} </option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Direccion</label>
-                    <input type="text" id="hot_dir" class="form-control" placeholder="Ingrese direccion">
-                </div>
-
-                <div class="form-group">
-                    <label>Numero de habitaciones</label>
-                    <input type="number" id="hot_canthab" class="form-control" placeholder="Ingrese numero de habitaciones">
-                </div>
-                <div class="row justify-content-center">
-                    <div class="form-group col-ms-3">
-                        <a (click)="navegar('read')" class="btn btn-danger bnt">
-                            <mat-icon>arrow_left</mat-icon>Volver</a>
-                    </div>&nbsp;&nbsp;
-                    <div class="form-group col-ms-3">
-                        <a class="btn btn-success bnt">
-                            <mat-icon>save_alt</mat-icon>Guardar</a>
+                <form [formGroup]="hotEditForm">
+                    <h5 class="card-title">Los campos con <span class="text-danger">*</span> son obligatorios!</h5>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input [(ngModel)]="hote2.nombre" type="text" formControlName="nombre" class="form-control" placeholder="Ingrese nombre">
                     </div>
-                </div>
 
+                    <div class="form-group">
+                        <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
+                        <select class="form-control" [(ngModel)]="hote2.ciudad" formControlName="ciudad">
+                            <option  *ngFor="let c of Ciudades" value="{{c.id}}"> {{c.nombre}} </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Direccion</label>
+                        <input [(ngModel)]="hote2.direccion" type="text" formControlName="dir" class="form-control" placeholder="Ingrese direccion">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Numero de habitaciones</label>
+                        <input [(ngModel)]="hote2.cantHab" type="number" formControlName="cantHab" class="form-control" placeholder="Ingrese numero de habitaciones">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-ms-3">
+                            <button (click)="navegar('read')" class="btn btn-danger bnt">
+                                <mat-icon>arrow_left</mat-icon>Volver</button>
+                        </div>&nbsp;&nbsp;
+                        <div class="form-group col-ms-3">
+                            <button class="btn btn-success bnt" (click)="show(hote2)">
+                                <mat-icon>save_alt</mat-icon>Guardar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

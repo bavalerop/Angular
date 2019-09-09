@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hotel } from '../../Models/hotel.model';
 import { Ciudad } from '../../Models/ciudad.model';
 import { PageEvent } from '@angular/material/paginator';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { PageEvent } from '@angular/material/paginator';
     styleUrls: ['./hot.component.css']
 })
 export class HotelComponent implements OnInit {
+    public hotSaveForm: FormGroup;
+    public hotEditForm: FormGroup;
     public tituloAlert: string;
     public pageSize: number;
     public pageNumber: number;
@@ -17,10 +20,27 @@ export class HotelComponent implements OnInit {
     public title: string;
     public Ciudades: Array<Ciudad>;
     public seccion: string;
+    public hote: Hotel;
+    public hote2: Hotel;
     public Hoteles: Array<Hotel>;
+    public builderHotSave: FormBuilder;
 
 
-    constructor() {
+    constructor(buil: FormBuilder) {
+        this.builderHotSave = buil;
+        this.hotSaveForm = this.builderHotSave.group({
+            nit: ['', Validators.required],
+            nombre: [''],
+            ciudad: [''],
+            dir: [''],
+            cantHab: ['']
+        });
+        this.hotEditForm = this.builderHotSave.group({
+            nombre: [''],
+            ciudad: [''],
+            dir: [''],
+            cantHab: ['']
+        });
         this.seccion = 'read';
         this.pageNumber = 1;
         this.pageSize = 2;
@@ -30,6 +50,8 @@ export class HotelComponent implements OnInit {
             new Ciudad(2, 'Cali'),
             new Ciudad(3, 'Medellin')
         ];
+        this.hote = new Hotel(null, '', '', '', null);
+        this.hote2 = new Hotel(1, 'buenas', '3', 'calle falsa', 10);
         this.Hoteles = [
             new Hotel(1, 'Decameron1', 'Bogota', 'calle falsa 123', 20),
             new Hotel(2, 'Decameron2', 'Medellin', 'calle falsa 123', 20),
@@ -39,6 +61,10 @@ export class HotelComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    show(h: Hotel) {
+        console.log(h);
     }
 
     navegar(seccion: string) {

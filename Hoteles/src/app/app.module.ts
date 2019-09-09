@@ -9,6 +9,9 @@ import {MatPaginatorModule, MatPaginatorIntl} from '@angular/material/paginator'
 import {MatIconModule} from '@angular/material/icon';
 import { CustomMatPaginatorIntl } from './paginator-es';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { HotelComponent } from './Components/CrudHotel/hot.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -23,8 +26,11 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatIconModule,
+    FormsModule,
+    HttpClientModule,
     SweetAlert2Module.forRoot(),
     BrowserAnimationsModule,
     MatPaginatorModule
