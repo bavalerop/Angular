@@ -26,6 +26,7 @@ export class HotelComponent implements OnInit {
     public builderHotSave: FormBuilder;
 
 
+
     constructor(buil: FormBuilder) {
         this.builderHotSave = buil;
         this.hotSaveForm = this.builderHotSave.group({
@@ -53,9 +54,9 @@ export class HotelComponent implements OnInit {
         this.hote = new Hotel(null, '', '', '', null);
         this.hote2 = new Hotel(1, 'buenas', '3', 'calle falsa', 10);
         this.Hoteles = [
-            new Hotel(1, 'Decameron1', 'Bogota', 'calle falsa 123', 20),
-            new Hotel(2, 'Decameron2', 'Medellin', 'calle falsa 123', 20),
-            new Hotel(3, 'Decameron3', 'Cali', 'calle falsa 123', 20)
+            new Hotel(1, 'Decameron1', '1', 'calle falsa 123', 20),
+            new Hotel(2, 'Decameron2', '2', 'calle falsa 123', 20),
+            new Hotel(3, 'Decameron3', '3', 'calle falsa 123', 20)
         ];
         this.pageSizeOptions = [2, 15, 50, 100, this.Hoteles.length];
     }
@@ -67,6 +68,10 @@ export class HotelComponent implements OnInit {
         console.log(h);
     }
 
+    show2(h: string) {
+        console.log(h);
+    }
+
     navegar(seccion: string) {
         this.seccion = seccion;
     }
@@ -75,5 +80,8 @@ export class HotelComponent implements OnInit {
         this.pageSize = e.pageSize;
         this.pageNumber = e.pageIndex + 1;
     }
+
+
+
 }
 

@@ -13,8 +13,10 @@ import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
+
 import { HotelComponent } from './Components/CrudHotel/hot.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { CiudadPipe } from './Pipes/ciudad.pipe';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     AppComponent,
     HotelComponent,
     PaginatePipe,
+    CiudadPipe,
     NavbarComponent
   ],
   imports: [
