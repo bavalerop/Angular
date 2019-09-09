@@ -1,0 +1,134 @@
+<hr>
+
+<div class="container">
+    <!-- seccion create -->
+    <div class="card col-sm-6 mx-auto" name="read" id="read" *ngIf="seccion=='create'">
+        <div class="card-header"><i class="fa fa-fw fa-plus-circle"></i><strong>Añadir Hotel</strong> </div>
+        <div class="card-body">
+            <div class="col-sm-12">
+                <h5 class="card-title">Los campos con <span class="text-danger">*</span> son obligatorios!</h5>
+                <div class="form-group">
+                    <label>NIT<span class="text-danger">*</span></label>
+                    <input type="text" id="hot_nit" class="form-control" placeholder="Ingrese nit" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="hot_name" class="form-control" placeholder="Ingrese nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
+                    <select class="form-control" id="hot_ciudad">
+                        <option *ngFor="let c of Ciudades"> {{c.nombre}} </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input type="text" id="hot_dir" class="form-control" placeholder="Ingrese direccion">
+                </div>
+
+                <div class="form-group">
+                    <label>Numero de habitaciones</label>
+                    <input type="number" id="hot_canthab" class="form-control" placeholder="Ingrese numero de habitaciones">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="form-group col-ms-3">
+                        <a (click)="navegar('read')" class="btn btn-danger bnt">
+                            <mat-icon>arrow_left</mat-icon>Volver</a>
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group col-ms-3">
+                        <a class="btn btn-info bnt">
+                            <mat-icon>save_alt</mat-icon>Añadir</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- seccion read -->
+    <div class="card" name="read" id="read" *ngIf="seccion=='read'">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h5 class="card-title"><i class="fa fa-fw fa-search"></i>Gestion de hoteles</h5>
+                </div>
+                <div class="col-sm-8">
+                    <a (click)="navegar('create')" class="float-right btn btn-dark btn-sm color-white"><i class="fa fa-fw fa-globe"></i>Añadir Hotel</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark bg-info">
+                    <tr>
+                        <th scope="col">NIT</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Numero de habitaciones</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let hot of Hoteles | paginate:pageSize:pageNumber">
+                        <td>{{ hot.nit }}</td>
+                        <td>{{ hot.nombre }}</td>
+                        <td>{{ hot.ciudad }}</td>
+                        <td>{{ hot.direccion }}</td>
+                        <td>{{ hot.cantHab }}</td>
+                        <td class=row><a class="edit col-sm-6"><i class="material-icons" title="Editar" (click)="navegar('update')">&#xE254;</i></a>
+                            <a class="delete col-sm-6" [swal]="deleteSwal"><i class="material-icons"  title="Borrar">&#xE872;</i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="Hoteles.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+    <!-- seccion create -->
+    <div class="card col-sm-6 mx-auto" name="update" id="update" *ngIf="seccion=='update'">
+        <div class="card-header"><i class="fa fa-fw fa-plus-circle"></i><strong>Editar Hotel</strong> </div>
+        <div class="card-body">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="hot_name" class="form-control" placeholder="Ingrese nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="ciudad">Seleccione la ciudad<span class="text-danger">*</span></label>
+                    <select class="form-control" id="hot_ciudad">
+                        <option *ngFor="let c of Ciudades"> {{c.nombre}} </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Direccion</label>
+                    <input type="text" id="hot_dir" class="form-control" placeholder="Ingrese direccion">
+                </div>
+
+                <div class="form-group">
+                    <label>Numero de habitaciones</label>
+                    <input type="number" id="hot_canthab" class="form-control" placeholder="Ingrese numero de habitaciones">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="form-group col-ms-3">
+                        <a (click)="navegar('read')" class="btn btn-danger bnt">
+                            <mat-icon>arrow_left</mat-icon>Volver</a>
+                    </div>&nbsp;&nbsp;
+                    <div class="form-group col-ms-3">
+                        <a class="btn btn-success bnt">
+                            <mat-icon>save_alt</mat-icon>Guardar</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<swal #deleteSwal title="Desea borrar el hotel?" text="Este cambio es irreversible" type="question" [showCancelButton]="true" [focusCancel]="true">
+</swal>

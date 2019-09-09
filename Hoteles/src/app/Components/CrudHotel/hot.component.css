@@ -1,0 +1,32 @@
+.left {
+    float: right;
+}
+
+mat-icon {
+    position: relative;
+    top: 7px;
+    left: -5px;
+}
+
+.bnt {
+    padding-top: 1px;
+    color: white !important;
+    position: relative;
+    top: 24px;
+}
+
+.color-white {
+    color: white !important;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #F44336;
+}
+
+table.table td i {
+    font-size: 19px;
+}
