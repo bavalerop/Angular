@@ -141,6 +141,8 @@ npm install --save sweetalert2 @sweetalert2/ngx-sweetalert2
  [(ngModel)]="hote.nit" --> GUARDE Y MUESTRE
  [ngModel]="hote.nit" --> SOLO MUESTRE
  (ngModel)="hote.nit" -->SOLO GUARDE
+****************servicios*****************************
+--ng g service services/ciudad
 
 
 

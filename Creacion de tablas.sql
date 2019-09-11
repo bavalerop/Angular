@@ -1,27 +1,28 @@
 ﻿create table acomodacion(
  aco_id int not null primary key,
- aco_name varchar(50)
+ aco_nombre varchar(50)
 );
 
 create table tipohab(
  thab_id int not null primary key,
- thab_name varchar(50)
+ thab_nombre varchar(50)
 );
 
 create table ciudad(
  ciu_id int not null primary key,
- ciu_nom varchar(100) null
+ ciu_nombre varchar(100) null
 );
 
 create table hotel(
  hot_nit int not null primary key,
- hot_nom varchar(100) null,
+ hot_nombre varchar(100) null,
  hot_direc varchar(100) null,
  num_hab int not null,
  ciudad_cod int not null  references ciudad(ciu_id)
 );
 
 create table asig_acomodacion(
+ cant_hab int not null,
  thab_cod int not null  references tipohab(thab_id),
  aco_cod int not null  references acomodacion(aco_id),
  hot_cod int not null  references hotel(hot_nit),

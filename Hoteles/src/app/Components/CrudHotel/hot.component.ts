@@ -3,7 +3,7 @@ import { Hotel } from '../../Models/hotel.model';
 import { Ciudad } from '../../Models/ciudad.model';
 import { PageEvent } from '@angular/material/paginator';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { ApiService } from '../../Services/api.service';
 
 @Component({
     selector: 'app-hotel',
@@ -24,10 +24,20 @@ export class HotelComponent implements OnInit {
     public hote2: Hotel;
     public Hoteles: Array<Hotel>;
     public builderHotSave: FormBuilder;
+    public respon: any;
 
 
 
-    constructor(buil: FormBuilder) {
+
+    constructor(buil: FormBuilder, private api: ApiService) {
+
+        this.Ciudades = [
+          new Ciudad(1, 'Bogota'),
+          new Ciudad(2, 'Cali'),
+          new Ciudad(3, 'Medellin')
+      ];
+
+
         this.builderHotSave = buil;
         this.hotSaveForm = this.builderHotSave.group({
             nit: ['', Validators.required],
@@ -46,11 +56,7 @@ export class HotelComponent implements OnInit {
         this.pageNumber = 1;
         this.pageSize = 2;
         this.title = 'Hoteles';
-        this.Ciudades = [
-            new Ciudad(1, 'Bogota'),
-            new Ciudad(2, 'Cali'),
-            new Ciudad(3, 'Medellin')
-        ];
+
         this.hote = new Hotel(null, '', '', '', null);
         this.hote2 = new Hotel(1, 'buenas', '3', 'calle falsa', 10);
         this.Hoteles = [
@@ -61,7 +67,13 @@ export class HotelComponent implements OnInit {
         this.pageSizeOptions = [2, 15, 50, 100, this.Hoteles.length];
     }
 
+    postCiudades(ciudades: Array<any>) {
+       this.api.postService('ciudad', '', ciudades).subscribe(data => this.respon = data);
+     }
+
     ngOnInit() {
+      this.postCiudades(this.Ciudades);
+      console.log(this.respon);
     }
 
     show(h: Hotel) {
