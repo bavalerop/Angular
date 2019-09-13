@@ -30,14 +30,6 @@ export class HotelComponent implements OnInit {
 
 
     constructor(buil: FormBuilder, private api: ApiService) {
-
-        this.Ciudades = [
-          new Ciudad(1, 'Bogota'),
-          new Ciudad(2, 'Cali'),
-          new Ciudad(3, 'Medellin')
-      ];
-
-
         this.builderHotSave = buil;
         this.hotSaveForm = this.builderHotSave.group({
             nit: ['', Validators.required],
@@ -56,7 +48,6 @@ export class HotelComponent implements OnInit {
         this.pageNumber = 1;
         this.pageSize = 2;
         this.title = 'Hoteles';
-
         this.hote = new Hotel(null, '', '', '', null);
         this.hote2 = new Hotel(1, 'buenas', '3', 'calle falsa', 10);
         this.Hoteles = [
@@ -67,13 +58,10 @@ export class HotelComponent implements OnInit {
         this.pageSizeOptions = [2, 15, 50, 100, this.Hoteles.length];
     }
 
-    postCiudades(ciudades: Array<any>) {
-       this.api.postService('ciudad', '', ciudades).subscribe(data => this.respon = data);
-     }
-
     ngOnInit() {
-      this.postCiudades(this.Ciudades);
-      console.log(this.respon);
+       this.getCiudades();
+       console.log(this.Ciudades);
+       // this.postCiudades(this.Ciudades);
     }
 
     show(h: Hotel) {
@@ -87,6 +75,32 @@ export class HotelComponent implements OnInit {
     navegar(seccion: string) {
         this.seccion = seccion;
     }
+    // Metodos de ciudades
+    // Get all ciudades
+    getCiudades(): any {
+        this.api.getService('ciudad', '').subscribe( (data: any) => {
+                this.Ciudades = data.DATA;
+                console.log(data.DATA);
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    // post ciduades
+    postCiudades(ciudades: Array<any>): any {
+        return this.api.postService('ciudad', '', ciudades).subscribe( (data: any[]) => {
+            console.log(data);
+        },
+        error => {
+            console.log(error);
+        }
+        );
+    }
+
+
+
 
     handlePage(e: PageEvent) {
         this.pageSize = e.pageSize;
