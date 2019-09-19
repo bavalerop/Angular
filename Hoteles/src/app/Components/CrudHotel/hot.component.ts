@@ -3,7 +3,7 @@ import { Hotel } from '../../Models/hotel.model';
 import { Ciudad } from '../../Models/ciudad.model';
 import { PageEvent } from '@angular/material/paginator';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from '../../Services/api.service';
+import { CiudadService } from '../../Services/ciudad.service';
 
 @Component({
     selector: 'app-hotel',
@@ -26,10 +26,18 @@ export class HotelComponent implements OnInit {
     public builderHotSave: FormBuilder;
     public respon: any;
 
+    constructor(buil: FormBuilder, private ciudad: CiudadService) {
+        // Servicios de ciduades
+        // GetCiudad
+        this.ciudad.getCiudades().subscribe((data: any) => {
+            this.Ciudades = data;
+            // console.log(data);
+        },
+        error => {
+            console.log(error);
+        }
+        );
 
-
-
-    constructor(buil: FormBuilder, private api: ApiService) {
         this.builderHotSave = buil;
         this.hotSaveForm = this.builderHotSave.group({
             nit: ['', Validators.required],
@@ -59,8 +67,7 @@ export class HotelComponent implements OnInit {
     }
 
     ngOnInit() {
-       this.getCiudades();
-       console.log(this.Ciudades);
+       console.log('OnInit');
        // this.postCiudades(this.Ciudades);
     }
 
@@ -77,27 +84,18 @@ export class HotelComponent implements OnInit {
     }
     // Metodos de ciudades
     // Get all ciudades
-    getCiudades(): any {
-        this.api.getService('ciudad', '').subscribe( (data: any) => {
-                this.Ciudades = data.DATA;
-                console.log(data.DATA);
-            },
-            error => {
-                console.log(error);
-            }
-        );
-    }
+
 
     // post ciduades
-    postCiudades(ciudades: Array<any>): any {
-        return this.api.postService('ciudad', '', ciudades).subscribe( (data: any[]) => {
-            console.log(data);
-        },
-        error => {
-            console.log(error);
-        }
-        );
-    }
+    // postCiudades(ciudades: Array<any>): any {
+    //    return this.api.postService('ciudad', '', ciudades).subscribe( (data: any[]) => {
+    //        console.log(data);
+    //    },
+    //    error => {
+    //        console.log(error);
+    //    }
+    //    );
+    // }
 
 
 
