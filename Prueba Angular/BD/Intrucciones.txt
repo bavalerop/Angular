@@ -1,0 +1,17 @@
+***************************Instrucciones de conexion BD************************
+usuario: PRUEBA_JAVA_2019
+pass: PRUEBA_JAVA_2019
+***************************DESDE SQL PLUS**************************************
+Creacion de usuario:
+alter session set"_ORACLE_SCRIPT"=true;
+CREATE TABLESPACE clients DATAFILE 'D:\BD\tbs_Clients.dbf'
+SIZE 6m; 
+create user PRUEBA_JAVA_2019 identified by PRUEBA_JAVA_2019 default tablespace clients temporary tablespace temp;
+Grant connect to PRUEBA_JAVA_2019;
+Grant resource to PRUEBA_JAVA_2019;
+GRANT CONNECT, RESOURCE TO PRUEBA_JAVA_2019; <-- privilegio de conectarse al usuario.
+
+GRANT CREATE TABLE TO PRUEBA_JAVA_2019;
+
+GRANT CREATE VIEW TO PRUEBA_JAVA_2019;
+
