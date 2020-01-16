@@ -6,6 +6,89 @@ abrir cmd
 --ng new my-dream-app
 --cd my-dream-app
 --ng serve
+*********************Clases********************************************
+class Auto {
+	marca:string="ferrari";
+	ruedas:number=2;
+	
+	constructor(marca:string, ruedas:number){
+		this.marca = marca;
+		this.ruedas = ruedas;
+	}
+}
+
+let carro:Auto = new Auto();
+*********************Interfaces****************************************
+interface Carro {
+    nombre:string,
+    ruedas:number
+}
+
+function mostrar(chuchu:Carro){
+    console.log("Hola carrito: "+chuchu.nombre);
+}
+*********************Promesas******************************************
+let prom1 = new Promise( (resolve, reject) => { 
+    setTimeout(()=>{
+        console.log("Promesa terminada");
+        //termina bien 
+        resolve();
+        //termina mal
+
+    }, 1500);
+})
+
+prom1.then(()=>{
+    console.log("Ejecutarme cuando se ejecute bien");
+}, () => {
+    console.log("Ejecutarme cuando pasa algo mal");
+})
+**********Destructuracion de arreglos y objetos************************
+let avenger = {
+    nombre : "steve",
+    poder: "droga"
+}
+let {nombre, poder} = avenger;
+let avengers:string[] = ["Thor", "Steve", "Tony"];
+let [loki, capi, ironman] = avengers;
+console.log(loki,capi,ironman);
+************Funciones de flecha************************************
+let mifuncion = function (a:number, b:number){
+    return a+b;
+}
+
+let mifuncionCorta = (a:number, b:number) => a+b;
+let Saludar = () => "Hola como estas";
+
+let mifuncionCorta2 = (nombre:string) => {
+    nombre = nombre.toUpperCase();
+    return nombre;
+}
+************Funciones con parametros Opcionales********************
+function buenas(quien:nombre,objeto:string="caja",momento?:string)
+************Template literal***************************************
+let texto = `Hola,  ${nombre} ${apellido}`; (permite salto de linea)
+let texto = `Hola,  ${1 + 2} ${apellido}`;
+let texto = `Hola,  ${getNombre()} ${apellido}`; (Uso de funciones)
+************Tipos de variables***************************************
+let, var 
+let nombre:string = "buenas";
+let num:number = 12345;
+let bol:boolean = true;
+
+let hoy:Date =  new Date('2020-10-21');
+
+let carro = {
+    ruedas: 2,
+    marca: "ferrari"
+}
+************TypeScript***************************************
+poner en modo escucha un archivo ts para ver errores:
+tsc archivo.ts -w
+para inicializar el proyecto:
+tsc -init
+tsc
+(se genera el compilado de los archivos y la muestra de errores) 
 ************Visual Studio Code*******************************
 
 Plugins recomendados para Visual Studio Code:
