@@ -1,3 +1,5 @@
+***********************Error @angular-devkit/build-angular*******************
+npm install --save-dev @angular-devkit/build-angular
 ***********************Instalacion de angular****************
 Primero instalar node.js
 abrir cmd
@@ -226,6 +228,25 @@ npm install --save sweetalert2 @sweetalert2/ngx-sweetalert2
  (ngModel)="hote.nit" -->SOLO GUARDE
 ****************servicios*****************************
 --ng g service services/ciudad
+****************UPDATE angular*****************************
+UPDATE: To update Angular CLI to a new version, you must update both the global package and your project's local package.
 
+Global package:
+npm uninstall -g @angular/cli
+npm cache verify // If npm version is < 5 then use `npm cache clean`
+npm install -g @angular/cli@latest
+Local project package:
+// Use rmdir /S/Q node_modules dist in Windows Command Prompt; 
+// Use rm -r -fo node_modules, dist in Windows PowerShell
 
-
+rm -rf node_modules dist 
+npm install --save-dev @angular/cli@latest
+npm install
+----Para actualizar a 9****
+ng update
+using Node 10.13 or later. se busca con ng version
+ng update @angular/core@8 @angular/cli@8 --allow-dirty
+ng update @angular/core @angular/cli --allow-dirty
+TypeScript 3.7
+ng update
+ng add @angular/localize

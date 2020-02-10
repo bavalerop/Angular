@@ -105,7 +105,7 @@ export class HotelComponent implements OnInit {
         this.pageNumber = e.pageIndex + 1;
     }
 
-
+    
 
 }
 
