@@ -189,7 +189,7 @@ con el archivo paginator-es-ts
         this.pageSizeOptions = [2, 5, 10, 25, 100, 'all'];
 
 ****************Instalar Bootstrarp**********************
--- npm install bootstrap jquery popper
+-- npm install bootstrap jquery popper.js --save
 --Despues ir al archivo angular.json e instanciar
 "styles": [
   "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -226,6 +226,11 @@ npm install --save sweetalert2 @sweetalert2/ngx-sweetalert2
  (ngModel)="hote.nit" -->SOLO GUARDE
 ****************servicios*****************************
 --ng g service services/ciudad
+***********Actualizar facilmente**********************
 
-
+--ng update @angular-devkit/build-angular
+--ng update @angular/material
+--ng update @angular/cli
+--ng update
+--ng version
 
