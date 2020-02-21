@@ -13,10 +13,11 @@ class Auto {
 	marca:string="ferrari";
 	ruedas:number=2;
 	
-	constructor(marca:string, ruedas:number){
+	constructor(marca:string, ruedas:number){//Para instanciar variables
 		this.marca = marca;
 		this.ruedas = ruedas;
 	}
+
 }
 
 let carro:Auto = new Auto();
@@ -132,6 +133,8 @@ abrir cmd
 *********************************************************
 *****************Crear componentes***********************
 -- ng g c Components/user --no-spec
+El constructor se lanza de primeras (Pero es para instaciar variables)
+ngOnInit se lanza despues del constructor (Para instanciar metodos)
 *****************Crear Pipes***********************
 -- ng g pipes Pipes/paginate --no-spec
 *****************Angular material************************
