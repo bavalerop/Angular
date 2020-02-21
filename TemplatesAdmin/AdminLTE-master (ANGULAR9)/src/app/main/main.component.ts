@@ -14,11 +14,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {}
 
   mainSidebarHeight(height) {
-    // this.renderer.setStyle(
-    //   this.contentWrapper.nativeElement,
-    //   'min-height',
-    //   height - 114 + 'px'
-    // );
+
   }
 
   toggleMenuSidebar() {
