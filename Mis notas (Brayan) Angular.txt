@@ -194,7 +194,7 @@ con el archivo paginator-es-ts
         this.pageSizeOptions = [2, 5, 10, 25, 100, 'all'];
 
 ****************Instalar Bootstrarp**********************
--- npm install bootstrap jquery popper
+-- npm install bootstrap jquery popper.js --save
 --Despues ir al archivo angular.json e instanciar
 "styles": [
   "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -231,6 +231,13 @@ npm install --save sweetalert2 @sweetalert2/ngx-sweetalert2
  (ngModel)="hote.nit" -->SOLO GUARDE
 ****************servicios*****************************
 --ng g service services/ciudad
+***********Actualizar facilmente**********************
+--ng update revisar que componentes toca actualizar y se actualizan individualmente y al final se hace el update completo
+--ng update @angular-devkit/build-angular
+--ng update @angular/material
+--ng update @angular/cli
+--ng update
+--ng version
 ****************UPDATE angular*****************************
 UPDATE: To update Angular CLI to a new version, you must update both the global package and your project's local package.
 
@@ -253,3 +260,4 @@ ng update @angular/core @angular/cli --allow-dirty
 TypeScript 3.7
 ng update
 ng add @angular/localize
+
