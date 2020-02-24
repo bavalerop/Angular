@@ -7,9 +7,10 @@
 @import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 @import '~ngx-toastr/toastr';
 ::-webkit-scrollbar {
-    width: 0px;
+    width: 5px;
     /* remove scrollbar space */
-    background: transparent;
+    background: red($color: #000000);
+    border-radius: 10px;
     /* optional: just make scrollbar invisible */
 }
 
