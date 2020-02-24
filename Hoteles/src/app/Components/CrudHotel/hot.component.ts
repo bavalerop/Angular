@@ -45,7 +45,7 @@ export class HotelComponent implements OnInit {
             ciudad: [''],
             dir: [''],
             cantHab: ['']
-        });
+        });    
         this.hotEditForm = this.builderHotSave.group({
             nombre: [''],
             ciudad: [''],

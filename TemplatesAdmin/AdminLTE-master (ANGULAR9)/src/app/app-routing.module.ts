@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { BlankComponent } from './pages/blank/blank.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AuthGuard } from './utils/guards/auth.guard';
-import { NonAuthGuard } from './utils/guards/non-auth.guard';
+import { MainComponent } from './Components/main/main.component';
+import { BlankComponent } from './Components/pages/blank/blank.component';
+import { LoginComponent } from './Components/login/login.component';
+import { ProfileComponent } from './Components/pages/profile/profile.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { DashboardComponent } from './Components/pages/dashboard/dashboard.component';
+import { AuthGuard } from './Components/utils/guards/auth.guard';
+import { NonAuthGuard } from './Components/utils/guards/non-auth.guard';
 
 const routes: Routes = [
   {
