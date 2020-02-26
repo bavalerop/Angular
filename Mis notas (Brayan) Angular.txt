@@ -8,6 +8,9 @@ abrir cmd
 --ng new my-dream-app
 --cd my-dream-app
 --ng serve
+*********************ngx-perfect-scrollbar*****************************
+****************Creando un componente router y un module***************************
+-- ng generate module Components/admin-template --routing
 *********************Clases********************************************
 class Auto {
 	marca:string="ferrari";

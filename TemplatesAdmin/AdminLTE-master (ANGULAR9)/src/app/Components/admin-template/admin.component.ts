@@ -1,9 +1,9 @@
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
 export class MainComponent implements OnInit {
   public sidebarMenuOpened = true;

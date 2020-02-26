@@ -6,3 +6,106 @@
 @import "../node_modules//ionicons/css/ionicons.min.css";
 @import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 @import '~ngx-toastr/toastr';
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .content-wrapper,
+.sidebar-mini.sidebar-collapse .main-footer,
+.sidebar-mini.sidebar-collapse .main-header {
+    margin-left: 4.6rem!important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .content-wrapper,
+.sidebar-mini.sidebar-collapse .main-footer,
+.sidebar-mini.sidebar-collapse .main-header {
+    margin-left: 4.6rem!important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .main-sidebar,
+.sidebar-mini.sidebar-collapse .main-sidebar::before {
+    margin-left: 0!important;
+    width: 4.6rem!important;
+}
+
+
+/*Cambio en tiempo de trnaisicion del menu izquierdo al desplegarse*/
+
+.hold-transition .content-wrapper,
+.hold-transition .control-sidebar,
+.hold-transition .control-sidebar *,
+.hold-transition .main-footer,
+.hold-transition .main-header,
+.hold-transition .main-sidebar,
+.hold-transition .main-sidebar * {
+    transition: 0.50s !important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused,
+.sidebar-mini.sidebar-collapse .main-sidebar:hover {
+    width: 16.5%!important;
+    transition: 0.50s !important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-link,
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-link {
+    width: 16.5%!important;
+    transition: 0.50s !important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused,
+.sidebar-mini.sidebar-collapse .main-sidebar:hover {
+    width: 16.5%!important;
+    transition: 0.50s !important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-link,
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-link {
+    width: 16.5%!important;
+    transition: 0.50s !important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-mini.sidebar-collapse .brand-text,
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p,
+.sidebar-mini.sidebar-collapse .sidebar .user-panel>.info {
+    margin-left: -0px!important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.content-wrapper,
+.main-footer,
+.main-header {
+    margin-left: 250px!important;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
+.sidebar-collapse .main-sidebar,
+.sidebar-collapse .main-sidebar::before {
+    margin-left: -16.5%!important;
+}

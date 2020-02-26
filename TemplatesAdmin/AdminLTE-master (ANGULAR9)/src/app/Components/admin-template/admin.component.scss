@@ -1,0 +1,24 @@
+/*Estilos de contenedor*/
+
+.content-wrapper {
+    min-height: calc(100vh - 114px);
+    height: 100%;
+}
+
+
+/*Estilos del scroll*/
+
+::-webkit-scrollbar {
+    width: 5px;
+    /* remove scrollbar space */
+    background: red($color: #000000);
+    border-radius: 10px;
+    /* optional: just make scrollbar invisible */
+}
+
+
+/*Sombras*/
+
+.elevation-4 {
+    box-shadow: 5px 6px 5px rgba(1, 1, 10, 0.50)!important;
+}
