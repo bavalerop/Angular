@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminTemplateRoutingModule } from './admin-template-routing.module';
-import { MainComponent } from './admin.component';
+import { AdminComponent } from './admin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
@@ -15,7 +15,7 @@ import { NotificationsDropdownMenuComponent } from './header/notifications-dropd
 
 @NgModule({
   declarations: [
-    MainComponent,
+    AdminComponent,
     HeaderComponent,
     FooterComponent,
     MenuSidebarComponent,
@@ -30,7 +30,7 @@ import { NotificationsDropdownMenuComponent } from './header/notifications-dropd
     AdminTemplateRoutingModule
   ],
   exports: [
-    MainComponent
+    AdminComponent
   ]
 })
 export class AdminTemplateModule { }

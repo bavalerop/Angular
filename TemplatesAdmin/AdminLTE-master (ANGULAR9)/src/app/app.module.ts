@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminTemplateModule } from './Components/admin-template/admin-template.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
-    })
+    }),
+    AdminTemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

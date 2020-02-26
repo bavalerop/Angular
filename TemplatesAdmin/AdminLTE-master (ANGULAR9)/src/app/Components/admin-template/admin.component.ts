@@ -5,7 +5,7 @@ import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class MainComponent implements OnInit {
+export class AdminComponent implements OnInit {
   public sidebarMenuOpened = true;
   @ViewChild('contentWrapper', { static: false }) contentWrapper;
 

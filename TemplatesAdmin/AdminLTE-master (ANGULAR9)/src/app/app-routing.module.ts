@@ -1,29 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MainComponent } from './Components/admin-template/admin.component';
-import { BlankComponent } from './Components/pages/blank/blank.component';
-import { ProfileComponent } from './Components/pages/profile/profile.component';
-import { DashboardComponent } from './Components/pages/dashboard/dashboard.component';
-
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
-    children: [
-      {
-        path: 'profile',
-        component: ProfileComponent
-      },
-      {
-        path: 'blank',
-        component: BlankComponent
-      },
-      {
-        path: '',
-        component: DashboardComponent
-      }
-    ]
+    loadChildren: () => import('./Components/admin-template/admin-template.module').then(module => module.AdminTemplateModule)
   },
   { path: '**', redirectTo: '' }
 ];
