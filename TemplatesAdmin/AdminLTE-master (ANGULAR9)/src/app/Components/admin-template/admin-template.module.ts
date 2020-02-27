@@ -12,6 +12,7 @@ import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { MessagesDropdownMenuComponent } from './header/messages-dropdown-menu/messages-dropdown-menu.component';
 // tslint:disable-next-line: max-line-length
 import { NotificationsDropdownMenuComponent } from './header/notifications-dropdown-menu/notifications-dropdown-menu.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotificationsDropdownMenuComponent } from './header/notifications-dropd
   ],
   imports: [
     CommonModule,
-    AdminTemplateRoutingModule
+    AdminTemplateRoutingModule,
+    SharedModule
   ],
   exports: [
     AdminComponent
