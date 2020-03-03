@@ -32,7 +32,8 @@ import { SharedModule } from '../shared.module';
     SharedModule
   ],
   exports: [
-    AdminComponent
+    AdminComponent,
+    SharedModule
   ]
 })
 export class AdminTemplateModule { }
