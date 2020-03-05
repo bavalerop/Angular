@@ -109,3 +109,51 @@
 .sidebar-collapse .main-sidebar::before {
     margin-left: -16.5%!important;
 }
+
+
+/*Estilos ScrollBar*/
+
+perfect-scrollbar>.ps.ps--active-y>.ps__rail-y.ps--clicking,
+perfect-scrollbar>.ps.ps--active-y>.ps__rail-y:hover {
+    width: 9px!important;
+    background-color: transparent!important;
+}
+
+perfect-scrollbar>.ps.ps--scrolling-x>.ps__rail-x,
+perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
+    opacity: 1 !important;
+    background-color: transparent !important;
+}
+
+.ps__thumb-y {
+    background-color: #ffffff!important;
+}
+
+.ps__rail-y.ps--clicking .ps__thumb-y,
+.ps__rail-y:focus>.ps__thumb-y,
+.ps__rail-y:hover>.ps__thumb-y {
+    background-color: #fbfbfb!important;
+    width: 9px!important;
+}
+
+.ps--focus>.ps__rail-x,
+.ps--focus>.ps__rail-y,
+.ps--scrolling-x>.ps__rail-x,
+.ps--scrolling-y>.ps__rail-y,
+.ps:hover>.ps__rail-x,
+.ps:hover>.ps__rail-y {
+    opacity: 1!important;
+}
+
+.hold-transition .content-wrapper,
+.hold-transition .control-sidebar,
+.hold-transition .control-sidebar *,
+.hold-transition .main-footer,
+.hold-transition .main-header,
+.hold-transition .main-sidebar,
+.hold-transition .main-sidebar * {
+    transition: 0.1s !important;
+}
+
+
+/*Fin Stilos ScrollBar*/
