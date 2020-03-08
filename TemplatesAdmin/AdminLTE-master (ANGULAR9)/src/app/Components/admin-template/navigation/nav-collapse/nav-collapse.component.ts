@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NavigationItem} from '../../navigation';
 import {animate, style, transition, trigger} from '@angular/animations';
-import {GradientConfig} from '../../../../../../app-config';
+import { NavigationModel } from '../../../../Models/Navigations/Navigation.model';
 
 @Component({
   selector: 'app-nav-collapse',
@@ -21,14 +20,10 @@ import {GradientConfig} from '../../../../../../app-config';
 })
 export class NavCollapseComponent implements OnInit {
   public visible;
-  @Input() item: NavigationItem;
-  public gradientConfig: any;
-  public themeLayout: string;
+  @Input() item: NavigationModel;
 
   constructor() {
     this.visible = false;
-zz
-    this.themeLayout = this.gradientConfig.layout;
   }
 
   ngOnInit() {
@@ -38,11 +33,11 @@ zz
     this.visible = !this.visible;
 
     let parent = e.target;
-    if (this.themeLayout === 'vertical') {
-      parent = parent.parentElement;
-    }
+    parent = parent.parentElement;
+
 
     const sections = document.querySelectorAll('.pcoded-hasmenu');
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < sections.length; i++) {
       if (sections[i] !== parent) {
         sections[i].classList.remove('pcoded-trigger');
@@ -54,7 +49,6 @@ zz
     if (firstParent.classList.contains('pcoded-hasmenu')) {
       do {
         firstParent.classList.add('pcoded-trigger');
-        // firstParent.parentElement.classList.toggle('pcoded-trigger');
         firstParent = firstParent.parentElement.parentElement.parentElement;
       } while (firstParent.classList.contains('pcoded-hasmenu'));
     } else if (preParent.classList.contains('pcoded-submenu')) {

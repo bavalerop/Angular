@@ -1,8 +1,8 @@
 <aside #mainSidebar class="main-sidebar sidebar-dark-primary elevation-4 fixedsidebar">
     <!-- Brand Logo -->
     <a [routerLink]="['/']" class="brand-link main-sidebar brandLogo fixedsidebar">
-        <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
-        <span class="brand-text font-weight-light">Admin Fundacion</span>
+        <img src="{{companyData.logo}}" alt="Empresa" class="brand-image img-circle elevation-3" style="opacity: .8" />
+        <span class="brand-text font-weight-light">{{companyData.nombre}}</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,10 +11,10 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="assets/img/photo2.png" class="img-circle elevation-2" alt="User Image" />
+                    <img src="{{userData.logo}}" class="img-circle elevation-2" alt="User Image" />
                 </div>
                 <div class="info">
-                    <a [routerLink]="['/profile']" class="d-block">Brayan Valero</a>
+                    <a [routerLink]="['/profile']" class="d-block">{{userData.name1}} {{userData.lastName}}</a>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-                    <li class="nav-item">
+                    <li class="nav-item .hovernavitem">
                         <a [routerLink]="['/']" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -150,6 +150,7 @@
                     <li>ja</li>
                     <li>ja</li>
                     <li>ja</li>
+                    <app-nav-content></app-nav-content>
                 </ul>
             </nav>
 

@@ -40,9 +40,9 @@
 /*Estilos cuando se genera el fixed en otros tamaños*/
 
 :not(.layout-fixed) .main-sidebar {
-    min-height: 8%;
-    padding: 12px 0px 0px 0px!important;
-    height: 3.5%!important;
+    min-height: 57px;
+    padding: 12px 0px 0px .8rem!important;
+    height: 57px!important;
     overflow: hidden;
 }
 
@@ -66,5 +66,14 @@
 
 .movefixedtop {
     position: absolute;
-    top: 8%;
+    top: 57px;
+    height: calc(100%-57px);
+}
+
+.ul li a:hover {
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #4099ff;
 }

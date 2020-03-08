@@ -1,0 +1,5 @@
+<ng-container *ngIf="!item.hidden">
+    <ng-template #itemIcon>
+        <span *ngIf="item.icon" class="pcoded-micon"><i class="feather" [ngClass]="item.icon"></i></span>
+    </ng-template>
+</ng-container>

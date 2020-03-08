@@ -13,6 +13,10 @@ import { MessagesDropdownMenuComponent } from './header/messages-dropdown-menu/m
 // tslint:disable-next-line: max-line-length
 import { NotificationsDropdownMenuComponent } from './header/notifications-dropdown-menu/notifications-dropdown-menu.component';
 import { SharedModule } from '../shared.module';
+import { NavContentComponent } from './navigation/nav-content.component';
+import { NavCollapseComponent } from './navigation/nav-collapse/nav-collapse.component';
+import { NavGroupComponent } from './navigation/nav-group/nav-group.component';
+import { NavItemComponent } from './navigation/nav-item/nav-item.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { SharedModule } from '../shared.module';
     FooterComponent,
     MenuSidebarComponent,
     BlankComponent,
+    NavContentComponent,
+    NavCollapseComponent,
+    NavItemComponent,
+    NavGroupComponent,
     ProfileComponent,
     DashboardComponent,
     MessagesDropdownMenuComponent,

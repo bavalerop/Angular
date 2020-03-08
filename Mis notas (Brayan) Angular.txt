@@ -278,3 +278,6 @@ TypeScript 3.7
 ng update
 ng add @angular/localize
 
+**Links Tesis**
+https://fontawesome.com/icons?d=gallery&q=User iconos
+http://lite.codedthemes.com/gradient-able/angular/dashboard/analytics
