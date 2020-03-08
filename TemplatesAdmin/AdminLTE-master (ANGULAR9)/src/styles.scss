@@ -27,6 +27,16 @@
 
 /*Cambios de tamaño en menu izquierdo (Responsive)*/
 
+.main-sidebar,
+.main-sidebar::before {
+    -webkit-transition: margin-left .3s ease-in-out, width .3s ease-in-out;
+    transition: margin-left .3s ease-in-out, width .3s ease-in-out;
+    width: 230px;
+}
+
+
+/*Cambios de tamaño en menu izquierdo (Responsive)*/
+
 .sidebar-mini.sidebar-collapse .main-sidebar,
 .sidebar-mini.sidebar-collapse .main-sidebar::before {
     margin-left: 0!important;
@@ -51,7 +61,7 @@
 
 .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused,
 .sidebar-mini.sidebar-collapse .main-sidebar:hover {
-    width: 16.5%!important;
+    width: 12.5%!important;
     transition: 0.50s !important;
 }
 
@@ -60,7 +70,7 @@
 
 .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-link,
 .sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-link {
-    width: 16.5%!important;
+    width: 12.5%!important;
     transition: 0.50s !important;
 }
 
@@ -69,7 +79,7 @@
 
 .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused,
 .sidebar-mini.sidebar-collapse .main-sidebar:hover {
-    width: 16.5%!important;
+    width: 12.5%!important;
     transition: 0.50s !important;
 }
 
@@ -78,7 +88,7 @@
 
 .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-link,
 .sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-link {
-    width: 16.5%!important;
+    width: 12.5%!important;
     transition: 0.50s !important;
 }
 
@@ -99,7 +109,7 @@
 .content-wrapper,
 .main-footer,
 .main-header {
-    margin-left: 250px!important;
+    margin-left: 230px!important;
 }
 
 
@@ -107,7 +117,7 @@
 
 .sidebar-collapse .main-sidebar,
 .sidebar-collapse .main-sidebar::before {
-    margin-left: -16.5%!important;
+    margin-left: -12.5%!important;
 }
 
 

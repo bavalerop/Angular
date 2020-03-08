@@ -116,6 +116,20 @@ Plugins recomendados para Visual Studio Code:
 • TSLint
 • TypeScript Hero
 • TypeScript Importer
+• Agregar consola de git a visual studio
+Press Ctrl + Shift + P to open the Visual Studio Code command palate.
+Type >preferences: Open Settings (JSON) in the text area.
+{
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-cmd.exe",
+    "terminal.integrated.shellArgs.windows": [
+        "--command=usr/bin/bash.exe",
+        "-l",
+        "-i"
+    ],
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "files.autoSave": "afterDelay"
+}
 *****************************************************************
 ***********Error de Instalacion de angular****************
 Actualizar node

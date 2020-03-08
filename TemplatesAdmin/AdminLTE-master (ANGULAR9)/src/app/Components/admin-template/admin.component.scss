@@ -6,17 +6,6 @@
 }
 
 
-/*Estilos del scroll*/
-
-::-webkit-scrollbar {
-    width: 5px;
-    /* remove scrollbar space */
-    background: red($color: #000000);
-    border-radius: 10px;
-    /* optional: just make scrollbar invisible */
-}
-
-
 /*Sombras*/
 
 .elevation-4 {
