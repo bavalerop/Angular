@@ -1,5 +1,5 @@
 <div class="navbar-content">
-    <ul class="nav pcoded-inner-navbar" (clickOutside)="fireOutClick()">
+    <ul class="nav pcoded-inner-navbar">
         <ng-container *ngFor="let item of navigation">
             <app-nav-group *ngIf="item.type=='group'" [item]="item"></app-nav-group>
             <app-nav-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-collapse>

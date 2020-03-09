@@ -19,6 +19,6 @@ export class NavigationService {
   }
 
   getNav() {
-    return this.navItemArrayFinal;
+    return this.navGroup;
   }
 }

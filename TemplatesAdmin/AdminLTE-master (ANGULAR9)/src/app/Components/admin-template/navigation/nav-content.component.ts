@@ -22,8 +22,6 @@ export class NavContentComponent implements OnInit {
   @ViewChild('navbarWrapper', {static: false}) navbarWrapper: ElementRef;
 
   constructor(
-    public nav: NavigationModel,
-    private zone: NgZone,
     private location: Location,
     // tslint:disable-next-line: variable-name
     private _navService: NavigationService
