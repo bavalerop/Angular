@@ -1,113 +1,105 @@
-/*Tamaño del manu izquierdo*/
-
-.main-sidebar {
-    height: 100vh;
-}
-
-
-/*Tiempo de transicion*/
-
-.main-sidebar,
-.main-sidebar::after {
-    transition: 0.55s!important;
-}
-
-
-/*estilos de navbar del menu izquierdo*/
-
-.brandLogo {
-    position: fixed;
-    background-image: linear-gradient(30deg, #02012d, #010017, rgba(1, 1, 10, 0.92));
-    border-radius: 3%;
-}
-
-
-/*Estilos para el menu izquierdo con el nuevo navbar*/
-
-.stylefixedtop {
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-
-/*Estilo para fixear (Dejar fijo un elemento)*/
-
-.fixedsidebar {
-    position: fixed;
-}
-
-
-/*Estilos cuando se genera el fixed en otros tamaños*/
-
-:not(.layout-fixed) .main-sidebar {
-    min-height: 57px;
-    padding: 12px 0px 0px .8rem!important;
-    height: 57px!important;
-    overflow: hidden;
-}
-
-
-/*Estilos del menu izquierdo*/
-
-[class*=sidebar-dark-] {
-    background-image: linear-gradient(30deg, rgb(113, 111, 111), #02012d, #010017, rgba(1, 1, 10, 0.92));
-    border-radius: 1%;
-}
-
-.pb-3,
-.py-3 {
-    padding-bottom: 0.5rem!important;
-}
-
-.mt-3,
-.my-3 {
-    margin-top: 0.5rem!important;
-}
-
-.movefixedtop {
-    position: absolute;
-    top: 57px;
-    height: calc(100%-57px);
-}
-
-.mt-2,
-.my-2 {
-    margin-top: -1.7rem!important;
-}
-
-.ul li a:hover {
-    left: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: #4099ff;
-}
-
-.groupnav {
-    border-top-color: #e2e5e8!important;
-    color: #ffffff!important;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 18px 15px 5px;
-    position: relative;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-    border-top-color: #e2e5e8;
-    margin-top: 10px;
-    border-top: 1px solid #344258;
-}
-
-.submenu {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transform: rotateX(0deg);
-    background: #fff;
-    padding: 15px 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.collapsed {
-    margin-left: 14px;
-}
+    /*Tamaño del manu izquierdo*/
+    
+    .main-sidebar {
+        height: 100vh;
+    }
+    /*Tiempo de transicion*/
+    
+    .main-sidebar,
+    .main-sidebar::after {
+        transition: 0.55s!important;
+    }
+    /*estilos de navbar del menu izquierdo*/
+    
+    .brandLogo {
+        position: fixed;
+        background-image: linear-gradient(30deg, #02012d, #010017, rgba(1, 1, 10, 0.92));
+        border-radius: 3%;
+    }
+    /*Estilos para el menu izquierdo con el nuevo navbar*/
+    
+    .stylefixedtop {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    /*Estilo para fixear (Dejar fijo un elemento)*/
+    
+    .fixedsidebar {
+        position: fixed;
+    }
+    /*Estilos cuando se genera el fixed en otros tamaños*/
+    
+     :not(.layout-fixed) .main-sidebar {
+        min-height: 57px;
+        padding: 12px 0px 0px .8rem!important;
+        height: 57px!important;
+        overflow: hidden;
+    }
+    /*Estilos del menu izquierdo*/
+    
+    [class*=sidebar-dark-] {
+        background-image: linear-gradient(30deg, rgb(113, 111, 111), #02012d, #010017, rgba(1, 1, 10, 0.92));
+        border-radius: 1%;
+    }
+    
+    .pb-3,
+    .py-3 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .mt-3,
+    .my-3 {
+        margin-top: 0.5rem!important;
+    }
+    
+    .movefixedtop {
+        position: absolute;
+        top: 57px;
+        height: calc(100%-57px);
+    }
+    
+    .mt-2,
+    .my-2 {
+        margin-top: -1.7rem!important;
+    }
+    
+    .nav-item:hover {
+        cursor: pointer;
+    }
+    
+    .groupnav {
+        border-top-color: #e2e5e8!important;
+        color: #ffffff!important;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 18px 15px 5px;
+        position: relative;
+        text-transform: lowercase;
+        letter-spacing: 1px;
+        border-top-color: #e2e5e8;
+        margin-top: 10px;
+        border-top: 1px solid #344258;
+    }
+    
+    .submenu {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: rotateX(0deg);
+        background: #fff;
+        padding: 15px 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    .collapsed {
+        margin-left: 14px;
+    }
+    
+    .arrows {
+        font-size: 13px;
+        border: none;
+        position: absolute;
+        top: 13px;
+        right: 20px;
+    }
