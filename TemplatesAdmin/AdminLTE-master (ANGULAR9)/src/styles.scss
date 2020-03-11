@@ -167,3 +167,161 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 
 /*Fin Stilos ScrollBar*/
+
+
+/*Estilos de contenedor*/
+
+.content-wrapper {
+    min-height: calc(100vh - 114px);
+    height: 100%;
+}
+
+
+/*Sombras*/
+
+.elevation-4 {
+    box-shadow: 5px 6px 5px rgba(1, 1, 10, 0.50)!important;
+}
+
+
+/*Estilos menu dinamico*/
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+.groupnav {
+    border-top-color: #e2e5e8!important;
+    color: #ffffff!important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 18px 15px 5px;
+    position: relative;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    border-top-color: #e2e5e8;
+    margin-top: 10px;
+    border-top: 1px solid #344258;
+}
+
+.submenu {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg);
+    background: #fff;
+    padding: 15px 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.collapsed {
+    margin-left: 14px;
+}
+
+.collapsedalone {
+    margin-left: 14px;
+}
+
+.arrows {
+    font-size: 13px;
+    border: none;
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
+.submenu {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    background: transparent;
+    padding: 15px 0;
+    list-style: none;
+}
+
+.submenu:after {
+    background: rgba(185, 199, 212, .5);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 1px;
+    height: calc(100% - 36px);
+}
+
+.submenu li>a::after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 11px;
+    width: 32px;
+    height: 1px;
+    background: rgba(185, 199, 212, 0.52);
+}
+
+.submenu li>a::before {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: 22px;
+    left: 44px;
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+.navitem:hover {
+    background-color: rgba(255, 255, 255, .1)!important;
+}
+
+.navitem:hover:before {
+    content: ""!important;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+    width: 4px!important;
+    height: 100%!important;
+    background: red!important;
+}
+
+.navitemclick {
+    content: ""!important;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+    width: 4px!important;
+    height: 100%!important;
+    background: red!important;
+}
+
+.nav-item li:hover>a:before {
+    background: #4099ff;
+}
+
+.nav-item li:hover>a>:before {
+    background: transparent;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    color: #fff;
+}
+
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
+    background-color: transparent;
+}
+
+.nav-icon {
+    margin-right: 7px !important;
+}
+
+.nav-itemalon-icon {
+    margin-left: 20px !important;
+}
+
+
+/*Fin estilos menu dinamico*/

@@ -1,5 +1,5 @@
 <ng-container *ngIf="!item.hidden">
-    <li class="nav-item groupnav">{{item.title}}</li>
+    <li class="nav-item groupnav"><span class="brand-text font-weight-light">{{item.title}}</span></li>
     <ng-container *ngFor="let item of item.children">
         <app-nav-group *ngIf="item.type=='group'" [item]="item"></app-nav-group>
         <app-nav-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-collapse>

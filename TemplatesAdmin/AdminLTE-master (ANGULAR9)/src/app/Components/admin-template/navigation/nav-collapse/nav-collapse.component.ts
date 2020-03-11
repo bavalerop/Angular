@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ɵConsole} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import { NavigationModel } from '../../../../Models/Navigations/Navigation.model';
 
@@ -18,6 +18,7 @@ import { NavigationModel } from '../../../../Models/Navigations/Navigation.model
     ])
   ],
 })
+
 export class NavCollapseComponent implements OnInit {
   public visible;
   @Input() item: NavigationModel;
@@ -31,33 +32,27 @@ export class NavCollapseComponent implements OnInit {
 
   navCollapse(e) {
     this.visible = !this.visible;
-
     let parent = e.target;
-    parent = parent.parentElement;
+    // se valida si se esta desplegando el menu
+    parent = parent.querySelector('.arrows').contains('fas fa-angle-right');
+    console.log(parent);
+    if (parent.contains('fas fa-angle-right')) {
+        console.log('si la tiene');
+        parent.replace('fas fa-angle-right', 'fas fa-angle-down');
+    } else {
+      console.log('no la tiene');
+      parent.replace('fas fa-angle-down', 'fas fa-angle-right');
+    }
 
+    console.log(parent);
 
     const sections = document.querySelectorAll('.pcoded-hasmenu');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < sections.length; i++) {
-      if (sections[i] !== parent) {
-        sections[i].classList.remove('pcoded-trigger');
-      }
-    }
-
-    let firstParent = parent.parentElement;
-    let preParent = parent.parentElement.parentElement;
-    if (firstParent.classList.contains('pcoded-hasmenu')) {
-      do {
-        firstParent.classList.add('pcoded-trigger');
-        firstParent = firstParent.parentElement.parentElement.parentElement;
-      } while (firstParent.classList.contains('pcoded-hasmenu'));
-    } else if (preParent.classList.contains('pcoded-submenu')) {
-      do {
-        preParent.parentElement.classList.add('pcoded-trigger');
-        preParent = preParent.parentElement.parentElement.parentElement;
-      } while (preParent.classList.contains('pcoded-submenu'));
-    }
-    parent.classList.toggle('pcoded-trigger');
+        // tslint:disable-next-line: comment-format
+       // sections[i].classList.remove('pcoded-trigger');
+        // tslint:disable-next-line: comment-format
+        //preParent.parentElement.classList.add('pcoded-trigger');
+        // tslint:disable-next-line: comment-format
+        //preParent.classList.contains('pcoded-submenu'));
   }
 
 }

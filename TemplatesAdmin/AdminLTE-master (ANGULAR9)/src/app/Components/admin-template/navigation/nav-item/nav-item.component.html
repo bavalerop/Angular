@@ -1,5 +1,7 @@
 <ng-container *ngIf="!item.hidden">
-    <ng-template #itemIcon>
-        <span *ngIf="item.icon" class="pcoded-micon"><i class="feather" [ngClass]="item.icon"></i></span>
-    </ng-template>
+    <li class="nav-item collapsed">
+        <a class="nav-link navitem">
+            <i class="nav-icon {{item.icon}}"></i><span class="brand-text font-weight-light">{{item.title}}</span>
+        </a>
+    </li>
 </ng-container>

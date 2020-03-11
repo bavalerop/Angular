@@ -17,6 +17,7 @@ import { NavContentComponent } from './navigation/nav-content.component';
 import { NavCollapseComponent } from './navigation/nav-collapse/nav-collapse.component';
 import { NavGroupComponent } from './navigation/nav-group/nav-group.component';
 import { NavItemComponent } from './navigation/nav-item/nav-item.component';
+import { NavItemaloneComponent } from './navigation/nav-itemalone/nav-itemalone.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NavItemComponent } from './navigation/nav-item/nav-item.component';
     ProfileComponent,
     DashboardComponent,
     MessagesDropdownMenuComponent,
-    NotificationsDropdownMenuComponent
+    NotificationsDropdownMenuComponent,
+    NavItemaloneComponent
   ],
   imports: [
     CommonModule,
