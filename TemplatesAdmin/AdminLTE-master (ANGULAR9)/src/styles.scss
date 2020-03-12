@@ -257,7 +257,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     position: absolute;
     top: 26px;
     left: 11px;
-    width: 32px;
+    width: 19px;
     height: 1px;
     background: rgba(185, 199, 212, 0.52);
 }
@@ -266,11 +266,34 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     content: "";
     border-radius: 50%;
     position: absolute;
-    top: 22px;
-    left: 44px;
+    top: 23px;
+    left: 26px;
     width: 6px;
     height: 6px;
     background: transparent;
+    z-index: 1000;
+}
+
+.submenuactive::after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: 23px;
+    left: 26px;
+    width: 6px;
+    height: 6px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.submenuactive::before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 11px;
+    width: 19px;
+    height: 1px;
+    background: red;
 }
 
 .navitem:hover {
@@ -287,7 +310,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     background: red!important;
 }
 
-.navitemclick {
+.active::after {
     content: ""!important;
     position: absolute!important;
     left: 0!important;
@@ -297,8 +320,12 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     background: red!important;
 }
 
+.active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 .nav-item li:hover>a:before {
-    background: #4099ff;
+    background: red;
 }
 
 .nav-item li:hover>a>:before {
@@ -321,6 +348,14 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 .nav-itemalon-icon {
     margin-left: 20px !important;
+}
+
+.esconder {
+    display: none;
+}
+
+.mostrar {
+    display: block;
 }
 
 

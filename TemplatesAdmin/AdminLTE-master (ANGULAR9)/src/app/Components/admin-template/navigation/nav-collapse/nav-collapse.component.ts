@@ -1,26 +1,15 @@
 import {Component, Input, OnInit, ɵConsole} from '@angular/core';
-import {animate, style, transition, trigger} from '@angular/animations';
 import { NavigationModel } from '../../../../Models/Navigations/Navigation.model';
 
 @Component({
   selector: 'app-nav-collapse',
   templateUrl: './nav-collapse.component.html',
-  styleUrls: ['./nav-collapse.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      transition(':enter', [
-        style({transform: 'translateY(-100%)', display: 'block'}),
-        animate('250ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        animate('250ms ease-in', style({transform: 'translateY(-100%)'}))
-      ])
-    ])
-  ],
+  styleUrls: ['./nav-collapse.component.scss']
 })
 
 export class NavCollapseComponent implements OnInit {
   public visible;
+
   @Input() item: NavigationModel;
 
   constructor() {
@@ -31,10 +20,9 @@ export class NavCollapseComponent implements OnInit {
   }
 
   navCollapse(e) {
-    this.visible = !this.visible;
     let parent = e.target;
     // se valida si se esta desplegando el menu
-    parent = parent.querySelector('.arrows').contains('fas fa-angle-right');
+    parent = parent.querySelector('.arrows').element;
     console.log(parent);
     if (parent.contains('fas fa-angle-right')) {
         console.log('si la tiene');

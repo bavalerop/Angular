@@ -1,10 +1,10 @@
 <ng-container *ngIf="!item.hidden">
     <li class="nav-item hovernavitem collapsed ">
-        <a class="nav-link navitem" (click)="navCollapse($event)">
+        <a class="nav-link navitem" (click)="navCollapse($event)" routerLink="/{{item.route}}" routerLinkActive="active">
             <i class="nav-icon {{item.icon}} "></i>
             <span class="brand-text font-weight-light">{{item.title}}</span><i class="arrows fas fa-angle-right "></i>
         </a>
-        <ng-container #subMenuContent style="display: block;">
+        <ng-container #subMenuContent [ngClass]="{'mostrar': visible == true, 'esconder': visible == false}">
             <ul class="submenu">
                 <ng-container *ngFor="let item of item.children ">
                     <app-nav-group *ngIf="item.type=='group' " [item]="item "></app-nav-group>
