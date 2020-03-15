@@ -204,17 +204,6 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     border-top: 1px solid #344258;
 }
 
-.submenu {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transform: rotateX(0deg);
-    background: #fff;
-    padding: 15px 0;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
 .collapsed {
     margin-left: 14px;
 }
@@ -274,28 +263,6 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     z-index: 1000;
 }
 
-.submenuactive::after {
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    top: 23px;
-    left: 26px;
-    width: 6px;
-    height: 6px;
-    background: transparent;
-    z-index: 1000;
-}
-
-.submenuactive::before {
-    content: "";
-    position: absolute;
-    top: 26px;
-    left: 11px;
-    width: 19px;
-    height: 1px;
-    background: red;
-}
-
 .navitem:hover {
     background-color: rgba(255, 255, 255, .1)!important;
 }
@@ -308,6 +275,22 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     width: 4px!important;
     height: 100%!important;
     background: red!important;
+}
+
+.submenuactive {
+    color: #fff!important;
+}
+
+.submenuactive::before {
+    content: ""!important;
+    border-radius: 50%!important;
+    position: absolute!important;
+    top: 23px!important;
+    left: 26px!important;
+    width: 6px!important;
+    height: 6px!important;
+    background: red!important;
+    z-index: 1000!important;
 }
 
 .active::after {
@@ -348,14 +331,6 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 .nav-itemalon-icon {
     margin-left: 20px !important;
-}
-
-.esconder {
-    display: none;
-}
-
-.mostrar {
-    display: block;
 }
 
 

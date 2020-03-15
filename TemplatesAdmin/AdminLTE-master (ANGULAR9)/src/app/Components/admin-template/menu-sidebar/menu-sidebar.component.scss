@@ -1,34 +1,35 @@
     /*Tamaño del manu izquierdo*/
-
+    
     .main-sidebar {
         height: 100vh;
     }
     /*Tiempo de transicion*/
-
+    
     .main-sidebar,
     .main-sidebar::after {
         transition: 0.55s!important;
     }
     /*estilos de navbar del menu izquierdo*/
-
+    
     .brandLogo {
         position: fixed;
         background-image: linear-gradient(30deg, #02012d, #010017, rgba(1, 1, 10, 0.92));
         border-radius: 3%;
     }
     /*Estilos para el menu izquierdo con el nuevo navbar*/
-
+    
     .stylefixedtop {
         font-size: 1.2rem;
         width: 100%;
+        overflow-y: hidden;
     }
     /*Estilo para fixear (Dejar fijo un elemento)*/
-
+    
     .fixedsidebar {
         position: fixed;
     }
     /*Estilos cuando se genera el fixed en otros tamaños*/
-
+    
      :not(.layout-fixed) .main-sidebar {
         min-height: 57px;
         padding: 12px 0px 0px .8rem!important;
@@ -36,28 +37,28 @@
         overflow: hidden;
     }
     /*Estilos del menu izquierdo*/
-
+    
     [class*=sidebar-dark-] {
         background-image: linear-gradient(30deg, rgb(113, 111, 111), #02012d, #010017, rgba(1, 1, 10, 0.92));
         border-radius: 1%;
     }
-
+    
     .pb-3,
     .py-3 {
         padding-bottom: 0.5rem!important;
     }
-
+    
     .mt-3,
     .my-3 {
         margin-top: 0.5rem!important;
     }
-
+    
     .movefixedtop {
         position: absolute;
         top: 57px;
         height: calc(100%-57px);
     }
-
+    
     .mt-2,
     .my-2 {
         margin-top: -1.7rem!important;

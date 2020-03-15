@@ -1,18 +1,18 @@
 <ng-container *ngIf="!item.hidden">
     <li class="nav-item hovernavitem collapsed ">
-        <a class="nav-link navitem" (click)="navCollapse($event)" routerLink="/{{item.route}}" routerLinkActive="active">
-            <i class="nav-icon {{item.icon}} "></i>
-            <span class="brand-text font-weight-light">{{item.title}}</span><i class="arrows fas fa-angle-right "></i>
+        <a class="nav-link navitem" (click)="navCollapse()" routerLink="/{{item.route}}" routerLinkActive="active">
+            <i class=" nav-icon {{item.icon}} "></i>
+            <span class="brand-text font-weight-light ">{{item.title}}</span><i class="arrows fas fa-angle-right" #itemCollapsed></i>
         </a>
-        <ng-container #subMenuContent [ngClass]="{'mostrar': visible == true, 'esconder': visible == false}">
-            <ul class="submenu">
+        <ng-container>
+            <ul class="submenu " [@slideInOut]="animationState">
                 <ng-container *ngFor="let item of item.children ">
                     <app-nav-group *ngIf="item.type=='group' " [item]="item "></app-nav-group>
                     <app-nav-collapse *ngIf="item.type=='collapse' " [item]="item "></app-nav-collapse>
+                    <app-nav-item *ngIf="item.type=='item' " [item]="item "></app-nav-item>
                     <app-nav-itemalone *ngIf="item.type=='itemalone' " [item]="item "></app-nav-itemalone>
                 </ng-container>
             </ul>
         </ng-container>
-
     </li>
 </ng-container>

@@ -14,18 +14,18 @@ export class NavigationService {
   constructor() {
     this.navItemArrayFinal =  [
        new NavigationModel(2, 'Users', 'item', 'd', 'fas fa-tachometer-alt', false, 'users', '', '', []),
-       new NavigationModel(3, 'Menus', 'collapse', '', 'fas fa-layer-group', false, 'dashoo', '', '', [
+       new NavigationModel(3, 'Menus', 'collapse', '', 'fas fa-layer-group', false, 'profile', '', '', [
         new NavigationModel(4, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 'dash2', '', '', []),
-        new NavigationModel(5, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, '', '', '', []),
-        new NavigationModel(6, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, '', '', '', [])
+        new NavigationModel(5, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 's', '', '', []),
+        new NavigationModel(6, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 's', '', '', [])
        ])
     ];
     this.navItemArrayFinal2 =  [
-      new NavigationModel(2, 'Users', 'item', 'd', 'fas fa-tachometer-alt', false, 'profile', '', '', []),
+      new NavigationModel(2, 'Users', 'item', 'd', 'fas fa-tachometer-alt', false, 'pro', '', '', []),
       new NavigationModel(3, 'Menus', 'collapse', '', 'fas fa-layer-group', false, 'dashooo', '', '', [
-       new NavigationModel(4, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, '', '', '', []),
-       new NavigationModel(5, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, '', '', '', []),
-       new NavigationModel(6, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, '', '', '', [])
+       new NavigationModel(4, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 's', '', '', []),
+       new NavigationModel(5, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 's', '', '', []),
+       new NavigationModel(6, 'Users', 'itemalone', '', 'fas fa-tachometer-alt', false, 's', '', '', [])
       ])
    ];
     this.navGroup = new NavigationModel(1, 'Maestros', 'group', '', '', false, '', '', '', this.navItemArrayFinal);
