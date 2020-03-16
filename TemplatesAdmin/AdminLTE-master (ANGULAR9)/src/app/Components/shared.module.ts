@@ -4,13 +4,18 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { ScrollBottomComponent } from './scroll-bottom/scroll-bottom.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ScrollBottomComponent,
+    ScrollTopComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -22,7 +27,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     }),
   ],
   exports: [
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    ScrollBottomComponent,
+    ScrollTopComponent
   ],
   providers: [
     {

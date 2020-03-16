@@ -6,6 +6,13 @@
 @import "../node_modules//ionicons/css/ionicons.min.css";
 @import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 @import '~ngx-toastr/toastr';
+::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
+}
+
 
 /*Cambios de tamaño en menu izquierdo (Responsive)*/
 
@@ -293,7 +300,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     z-index: 1000!important;
 }
 
-.active::after {
+.activeMenu::after {
     content: ""!important;
     position: absolute!important;
     left: 0!important;
@@ -303,7 +310,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
     background: red!important;
 }
 
-.active {
+.activeMenu {
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
