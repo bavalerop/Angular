@@ -1,11 +1,5 @@
-import {
-  Component,
-  OnInit,
-  HostListener,
-  ElementRef,
-  ViewChild,
-  Renderer2
-} from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild, Renderer2, Input } from '@angular/core';
+import { UserModel } from '../../../../Models/Users/User.model';
 
 @Component({
   selector: 'app-messages-dropdown-menu',
@@ -14,7 +8,7 @@ import {
 })
 export class MessagesDropdownMenuComponent implements OnInit {
   @ViewChild('dropdownMenu', { static: false }) dropdownMenu;
-
+  @Input() userData: UserModel;
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if (!this.elementRef.nativeElement.contains(event.target)) {

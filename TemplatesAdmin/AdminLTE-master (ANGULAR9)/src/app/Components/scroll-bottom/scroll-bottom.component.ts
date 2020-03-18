@@ -19,7 +19,7 @@ export class ScrollBottomComponent {
   onWindowScroll() {
     // tslint:disable-next-line: one-variable-per-declaration
     let scrollHeight, totalHeight;
-    scrollHeight = document.body.scrollHeight - 1;
+    scrollHeight = document.body.scrollHeight;
     totalHeight = window.scrollY + window.innerHeight;
     totalHeight = Math.trunc(totalHeight).valueOf();
     // tslint:disable-next-line: triple-equals

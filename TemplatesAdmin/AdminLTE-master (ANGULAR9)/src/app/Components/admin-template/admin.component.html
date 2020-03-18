@@ -1,8 +1,8 @@
 <div class="wrapper">
     <app-scroll-bottom></app-scroll-bottom>
-    <app-header (toggleMenuSidebar)="toggleMenuSidebar()"></app-header>
+    <app-header (toggleMenuSidebar)="toggleMenuSidebar()" [userData]="userData"></app-header>
 
-    <app-menu-sidebar (mainSidebarHeight)="mainSidebarHeight($event)"></app-menu-sidebar>
+    <app-menu-sidebar [userData]="userData" [companyData]="companyData"></app-menu-sidebar>
 
 
     <div #contentWrapper class="content-wrapper movefixedbottomtop">

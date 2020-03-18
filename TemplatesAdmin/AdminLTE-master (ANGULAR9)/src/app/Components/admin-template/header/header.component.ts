@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { UserModel } from '../../../Models/Users/User.model';
 
 
 @Component({
@@ -8,14 +8,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() userData: UserModel;
   @Output() toggleMenuSidebar: EventEmitter<any> = new EventEmitter<any>();
-  public searchForm: FormGroup;
+
 
   constructor() {}
 
   ngOnInit() {
-    this.searchForm = new FormGroup({
-      search: new FormControl(null)
-    });
   }
 }

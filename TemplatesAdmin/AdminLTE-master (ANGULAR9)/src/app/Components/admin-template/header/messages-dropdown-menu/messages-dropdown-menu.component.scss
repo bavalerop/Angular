@@ -1,5 +1,20 @@
 .dropdown {
-  .nav-link {
-    cursor: pointer;
-  }
+    .nav-link {
+        cursor: pointer;
+    }
+}
+
+.userIcon {
+    font-size: 25px;
+    color: #5a5a5a;
+    position: relative;
+    bottom: 8px;
+}
+
+.userIcon:hover {
+    color: black;
+}
+
+.cursorFalse {
+    cursor: auto;
 }

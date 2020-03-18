@@ -34,6 +34,7 @@ export class NavigationService {
   }
 
   getNav() {
+    
     return this.navItemArray;
   }
 }

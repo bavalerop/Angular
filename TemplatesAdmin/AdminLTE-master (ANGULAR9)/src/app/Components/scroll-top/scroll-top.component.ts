@@ -18,12 +18,11 @@ export class ScrollTopComponent implements OnInit {
   onWindowScroll() {
     // tslint:disable-next-line: one-variable-per-declaration
     let scrollHeight, totalHeight;
-    scrollHeight = document.body.scrollHeight - 1;
+    scrollHeight = document.body.scrollHeight;
     totalHeight = window.scrollY + window.innerHeight;
     totalHeight = Math.trunc(totalHeight).valueOf();
-
     // tslint:disable-next-line: triple-equals
-    if (window.pageYOffset > 100 && totalHeight != scrollHeight) {
+    if (window.pageYOffset > 10 && totalHeight != scrollHeight) {
         this.windowScrolled = true;
     } else if ( this.windowScrolled && window.pageYOffset
       || document.documentElement.scrollTop

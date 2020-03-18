@@ -119,6 +119,10 @@
     margin-left: 230px!important;
 }
 
+.sidebar-mini.sidebar-collapse .content-wrapper {
+    margin-left: 5.6rem !important;
+}
+
 
 /*Cambios de tamaño en menu izquierdo (Responsive)*/
 
@@ -169,11 +173,20 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 .hold-transition .main-header,
 .hold-transition .main-sidebar,
 .hold-transition .main-sidebar * {
-    transition: 0.1s !important;
+    transition: 0.50s !important;
 }
 
 
 /*Fin Stilos ScrollBar*/
+
+
+/* navbar */
+
+.main-header {
+    border-bottom: 0px;
+    background: #d4d4d4;
+    z-index: 1034;
+}
 
 
 /*Estilos de contenedor*/
@@ -186,8 +199,12 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 /*Sombras*/
 
-.elevation-4 {
-    box-shadow: 5px 6px 5px rgba(1, 1, 10, 0.50)!important;
+.box-shadow-sidebar {
+    box-shadow: 6px 57px 5px rgba(1, 1, 10, 0.5) !important;
+}
+
+.box-shadow-navbar {
+    box-shadow: 1px 6px 5px rgba(1, 1, 10, 0.5) !important;
 }
 
 
@@ -272,6 +289,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 .navitem:hover {
     background-color: rgba(255, 255, 255, .1)!important;
+    color: #fff!important;
 }
 
 .navitem:hover:before {
@@ -311,6 +329,7 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 }
 
 .activeMenu {
+    color: #fff!important;
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
