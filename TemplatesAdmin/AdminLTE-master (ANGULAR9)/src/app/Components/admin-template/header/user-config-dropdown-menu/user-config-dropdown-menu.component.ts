@@ -2,19 +2,13 @@ import { Component, OnInit, HostListener, ElementRef, ViewChild, Renderer2, Inpu
 import { UserModel } from '../../../../Models/Users/User.model';
 
 @Component({
-  selector: 'app-messages-dropdown-menu',
-  templateUrl: './messages-dropdown-menu.component.html',
-  styleUrls: ['./messages-dropdown-menu.component.scss']
+  selector: 'app-user-config-dropdown-menu',
+  templateUrl: './user-config-dropdown-menu.component.html',
+  styleUrls: ['./user-config-dropdown-menu.component.scss']
 })
-export class MessagesDropdownMenuComponent implements OnInit {
+export class UserConfigDropdownMenuComponent implements OnInit {
   @ViewChild('dropdownMenu', { static: false }) dropdownMenu;
   @Input() userData: UserModel;
-  @HostListener('document:click', ['$event'])
-  clickout(event) {
-    if (!this.elementRef.nativeElement.contains(event.target)) {
-      this.hideDropdownMenu();
-    }
-  }
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 

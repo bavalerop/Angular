@@ -12,7 +12,7 @@ import {animate, style, transition, trigger, state, group} from '@angular/animat
           'max-height': '100%', opacity: '1', visibility: 'visible'
       })),
       state('out', style({
-          'max-height': '0px', opacity: '0', visibility: 'hidden'
+          'max-height': '0px', opacity: '0', visibility: 'hidden', padding: '0px'
       })),
       transition('in => out', [group([
           animate('700ms ease-in-out', style({
@@ -20,6 +20,9 @@ import {animate, style, transition, trigger, state, group} from '@angular/animat
           })),
           animate('600ms ease-in-out', style({
               'max-height': '0px'
+          })),
+          animate('600ms ease-in-out', style({
+             padding: '0px'
           })),
           animate('900ms ease-in-out', style({
               visibility: 'hidden'
@@ -29,6 +32,9 @@ import {animate, style, transition, trigger, state, group} from '@angular/animat
       transition('out => in', [group([
           animate('1ms ease-in-out', style({
               visibility: 'visible'
+          })),
+          animate('600ms ease-in-out', style({
+            padding: '15px 0'
           })),
           animate('600ms ease-in-out', style({
               'max-height': '100%'
