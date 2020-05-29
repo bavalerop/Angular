@@ -18,6 +18,7 @@ export class SpinnerComponent implements OnDestroy {
     @Input() public backgroundColor = '#2196f3';
     @Input() public spinner = Spinkit.skLine;
     constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {
+      this.document.addEventListener
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
                 this.isSpinnerVisible = true;

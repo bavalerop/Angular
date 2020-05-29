@@ -1,7 +1,7 @@
 <aside #mainSidebar class="main-sidebar sidebar-dark-primary fixedsidebar box-shadow-sidebar">
     <!-- Brand Logo -->
-    <a [routerLink]="['/']" class="brand-link main-sidebar brandLogo fixedsidebar">
-        <img src="{{companyData.logo}}" alt="Empresa" class="brand-image img-circle elevation-3" style="opacity: .8" />
+    <a routerLink="admin" class="brand-link main-sidebar brandLogo fixedsidebar">
+        <img src="{{companyData.logo}}" alt="Empresa" class="brand-image img-circle elevation-2 imgprofile" />
         <span class="brand-text font-weight-light">{{companyData.nombre}}</span>
     </a>
 
@@ -14,7 +14,7 @@
                     <img src="{{userData.logo}}" class="img-circle elevation-2" alt="User Image" />
                 </div>
                 <div class="info">
-                    <a [routerLink]="['/profile']" class="d-block">{{userData.name1}} {{userData.lastName}}</a>
+                    <a routerLink="profile" class="d-block">{{userData.name1}} {{userData.lastName}}</a>
                 </div>
             </div>
 

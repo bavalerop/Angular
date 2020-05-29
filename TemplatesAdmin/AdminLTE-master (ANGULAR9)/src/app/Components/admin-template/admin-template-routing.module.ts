@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: 'dash2',
         component: DashboardComponent
+      },
+      {
+        path: 'menu',
+        loadChildren: () => import('../pages/menus/menu.module').then(module => module.MenuModule)
       }
     ]
   },

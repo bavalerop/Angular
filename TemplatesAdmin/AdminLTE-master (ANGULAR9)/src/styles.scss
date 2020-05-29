@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "scss/style";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "../node_modules//font-awesome/css/font-awesome.min.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
@@ -361,3 +363,30 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 
 
 /*Fin estilos menu dinamico*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/*Cambio de tamañano de ng-select para que quede igual que un form-control*/
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 36px!important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

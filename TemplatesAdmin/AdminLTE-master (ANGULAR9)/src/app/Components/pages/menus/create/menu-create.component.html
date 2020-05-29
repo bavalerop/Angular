@@ -1,0 +1,276 @@
+<app-spinner [loading]="load"></app-spinner>
+<!-- [ Main Content ] start -->
+<div class="pcoded-content">
+    <!-- [ Main Content ] start -->
+    <div class="row">
+        <!-- [ tabs ] start -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body" style="padding: 0.7rem!important;">
+                    <div>
+                        <h5 style="margin-bottom: 0px !important;">Menus</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-left">
+                        <li [ngbNavItem]="1">
+                            <a ngbNavLink><b>Tipo</b> Group </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form [formGroup]="formGroup" class="mt-1" (ngSubmit)="onSubmitGroup()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid " *ngIf="formGroup.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formGroup.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="submit" [disabled]="!formGroup.valid" class="btn btn-success btn-md">Guardar</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6>Menu Group</h6>
+                                        <p>Este tipo de menu es el que engloba el resto de sub-menus, se puede ver como el menu abuelo.</p>
+                                        <img class="img-fluid imgmenu " src="../../../../../assets/img/menus/Menus.PNG " alt="Menus picture " />
+                                        <p style="margin-top: 1rem; ">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado "maestros "</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="2 ">
+                            <a ngbNavLink><b>Tipo</b> Collapsed </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form [formGroup]="formCollapsed" class="mt-1" (ngSubmit)="onSubmitCollapsed()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid " *ngIf="formCollapsed.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formCollapsed.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid " *ngIf="formCollapsed.get('icon').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formCollapsed.get('icon').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid " *ngIf="formCollapsed.get('route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formCollapsed.get('route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navGroup" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Group" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid " *ngIf="formCollapsed.get('groupId').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formCollapsed.get('groupId').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="submit" [disabled]="!formCollapsed.valid" class="btn btn-success btn-md">Guardar</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6>Menu Collapsed</h6>
+                                        <p>Este tipo de menu es el que engloba sub-menus, pero es hijo de un menu tipo group, se puede ver como el menu padre.</p>
+                                        <img class="img-fluid imgmenu " src="../../../../../assets/img/menus/Menus.PNG " alt="Menus picture " />
+                                        <p style="margin-top: 1rem; ">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado "Menus"</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="3 ">
+                            <a ngbNavLink><b>Tipo</b> Item </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form [formGroup]="formItem" class="mt-1" (ngSubmit)="onSubmitItem()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid " *ngIf="formItem.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItem.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid " *ngIf="formItem.get('icon').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItem.get('icon').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid " *ngIf="formItem.get('route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItem.get('route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navGroup" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Group" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid " *ngIf="formItem.get('groupId').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItem.get('groupId').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="submit" [disabled]="!formItem.valid" class="btn btn-success btn-md">Guardar</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6>Menu Item</h6>
+                                        <p>Este tipo de menu es el que engloba sub-menus, pero es hijo de un menu tipo group, se puede ver como el menu padre, sin embargo este no tiene hijos.</p>
+                                        <img class="img-fluid imgmenu " src="../../../../../assets/img/menus/Menus.PNG " alt="Menus picture" />
+                                        <p style="margin-top: 1rem; ">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado "Menus" pero sin hijos y sin flecha para desplegar.</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="4 ">
+                            <a ngbNavLink><b>Tipo</b> Item Alone</a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form [formGroup]="formItemAlone" class="mt-1" (ngSubmit)="onSubmitItemAlone()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid " *ngIf="formItemAlone.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItemAlone.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid " *ngIf="formItemAlone.get('icon').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItemAlone.get('icon').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid " *ngIf="formItemAlone.get('route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItemAlone.get('route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navCollapsed" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Collapsed" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid " *ngIf="formItemAlone.get('groupId').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5 ">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid " *ngIf="!formItemAlone.get('groupId').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5 ">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="submit" [disabled]="!formItemAlone.valid" class="btn btn-success btn-md">Guardar</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6>Menu Item Alone</h6>
+                                        <p>Este tipo de menu es el hijo de los menus Collapsed, Ademas es nieto de un menu tipo group, se puede ver como el menu nieto, sin embargo este no tiene hijos.</p>
+                                        <img class="img-fluid imgmenu " src="../../../../../assets/img/menus/Menus.PNG " alt="Menus picture" />
+                                        <p style="margin-top: 1rem; ">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado "Crear, Modificar Borrar".</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                    </ul>
+
+                    <div [ngbNavOutlet]="nav " class="mt-2 "></div>
+                    <!-- [ tabs ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+</div>

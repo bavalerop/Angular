@@ -9,9 +9,9 @@
             </div>
         </div>
     </a>
-    <div #dropdownMenu class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+    <div #dropdownMenu class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="padding: 0 !important;">
         <!-- Profile Image -->
-        <div class="card card-primary card-outline" style="box-shadow: none!important;">
+        <div class="card card-primary card-outline borderuser" style="margin-bottom: 0px !important">
             <div class="card-body box-profile">
                 <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle" src="{{userData.logo}}" alt="User profile picture" />
@@ -27,6 +27,6 @@
         <div class="dropdown-divider" style="margin-left: 30px; margin-right: 30px; border-top: 1px solid #d1d3d6!important;"></div>
         <a href="#" class="dropdown-item dropdown-footer profile-username text-center">Editar perfil</a>
         <div class="dropdown-divider" style="margin-left: 30px; margin-right: 30px; border-top: 1px solid #d1d3d6!important;"></div>
-        <a href="#" class="dropdown-item dropdown-footer profile-username text-center">Cerrar session</a>
+        <a routerLink="/login/signin" class="dropdown-item dropdown-footer profile-username text-center">Cerrar session</a>
     </div>
 </li>

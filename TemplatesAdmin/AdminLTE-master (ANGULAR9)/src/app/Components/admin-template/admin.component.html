@@ -1,14 +1,13 @@
-<div class="wrapper">
-    <app-scroll-bottom></app-scroll-bottom>
-    <app-header (toggleMenuSidebar)="toggleMenuSidebar()" [userData]="userData"></app-header>
+<app-scroll-bottom>
+</app-scroll-bottom>
+<app-header (toggleMenuSidebar)="toggleMenuSidebar()" [userData]="userData"></app-header>
 
-    <app-menu-sidebar [userData]="userData" [companyData]="companyData"></app-menu-sidebar>
+<app-menu-sidebar [userData]="userData" [companyData]="companyData"></app-menu-sidebar>
 
 
-    <div #contentWrapper class="content-wrapper movefixedbottomtop">
-        <router-outlet></router-outlet>
-    </div>
-
-    <app-footer></app-footer>
-    <app-scroll-top></app-scroll-top>
+<div #contentWrapper class="content-wrapper movefixedbottomtop">
+    <router-outlet></router-outlet>
 </div>
+
+<app-footer></app-footer>
+<app-scroll-top></app-scroll-top>

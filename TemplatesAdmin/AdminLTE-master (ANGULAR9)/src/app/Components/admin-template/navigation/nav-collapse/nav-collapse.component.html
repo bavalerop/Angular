@@ -1,6 +1,6 @@
-<ng-container *ngIf="!item.hidden">
+<ng-container>
     <li class="nav-item hovernavitem collapsed ">
-        <a class="nav-link navitem" (click)="navCollapse()" routerLink="/{{item.route}}" routerLinkActive="activeMenu">
+        <a class="nav-link navitem" (click)="navCollapse()" routerLink="{{item.route}}" routerLinkActive="activeMenu">
             <i class=" nav-icon {{item.icon}} "></i>
             <span class="brand-text font-weight-light ">{{item.title}}</span><i class="arrows fas fa-angle-right" #itemCollapsed></i>
         </a>

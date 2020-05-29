@@ -9,7 +9,7 @@ export class CompanyService {
   public empresa: CompanyModel;
 
   constructor() {
-    this.empresa = new CompanyModel(1, 'Fundacion Vivis', 'Bogota', 'Calle falsa 123', 'assets/img/AdminLTELogo.png');
+    this.empresa = new CompanyModel(1, 'Fundacion Vivis', 'Bogota', 'Calle falsa 123', 'assets/img/logoVivis.jpg');
   }
 
   getEmpresa() {
