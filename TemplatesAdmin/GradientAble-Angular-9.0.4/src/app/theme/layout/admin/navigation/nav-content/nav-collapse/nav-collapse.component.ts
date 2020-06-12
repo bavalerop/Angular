@@ -27,7 +27,7 @@ export class NavCollapseComponent implements OnInit {
 
   constructor() {
     this.visible = false;
-zz
+
     this.themeLayout = this.gradientConfig.layout;
   }
 

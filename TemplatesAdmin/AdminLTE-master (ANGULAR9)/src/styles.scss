@@ -1,11 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "scss/style";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "../node_modules//font-awesome/css/font-awesome.min.css";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 @import "../node_modules//ionicons/css/ionicons.min.css";
 @import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 @import '~ngx-toastr/toastr';
+::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
+}
+
 
 /*Cambios de tamaño en menu izquierdo (Responsive)*/
 
@@ -112,6 +121,10 @@
     margin-left: 230px!important;
 }
 
+.sidebar-mini.sidebar-collapse .content-wrapper {
+    margin-left: 5.6rem !important;
+}
+
 
 /*Cambios de tamaño en menu izquierdo (Responsive)*/
 
@@ -162,8 +175,218 @@ perfect-scrollbar>.ps.ps--scrolling-y>.ps__rail-y {
 .hold-transition .main-header,
 .hold-transition .main-sidebar,
 .hold-transition .main-sidebar * {
-    transition: 0.1s !important;
+    transition: 0.50s !important;
 }
 
 
 /*Fin Stilos ScrollBar*/
+
+
+/* navbar */
+
+.main-header {
+    border-bottom: 0px;
+    background: #d4d4d4;
+    z-index: 1034;
+}
+
+
+/*Estilos de contenedor*/
+
+.content-wrapper {
+    min-height: calc(100vh - 114px);
+    height: 100%;
+}
+
+
+/*Sombras*/
+
+.box-shadow-sidebar {
+    box-shadow: 6px 57px 5px rgba(1, 1, 10, 0.5) !important;
+}
+
+.box-shadow-navbar {
+    box-shadow: 1px 6px 5px rgba(1, 1, 10, 0.5) !important;
+}
+
+
+/*Estilos menu dinamico*/
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+.groupnav {
+    border-top-color: #e2e5e8!important;
+    color: #ffffff!important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 18px 15px 5px;
+    position: relative;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    border-top-color: #e2e5e8;
+    margin-top: 10px;
+    border-top: 1px solid #344258;
+}
+
+.collapsed {
+    margin-left: 14px;
+}
+
+.collapsedalone {
+    margin-left: 14px;
+}
+
+.arrows {
+    font-size: 13px;
+    border: none;
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
+.submenu {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    background: transparent;
+    padding: 15px 0;
+    list-style: none;
+}
+
+.submenu:after {
+    background: rgba(185, 199, 212, .5);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 1px;
+    height: calc(100% - 36px);
+}
+
+.submenu li>a::after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 11px;
+    width: 19px;
+    height: 1px;
+    background: rgba(185, 199, 212, 0.52);
+}
+
+.submenu li>a::before {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: 23px;
+    left: 26px;
+    width: 6px;
+    height: 6px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.navitem:hover {
+    background-color: rgba(255, 255, 255, .1)!important;
+    color: #fff!important;
+}
+
+.navitem:hover:before {
+    content: ""!important;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+    width: 4px!important;
+    height: 100%!important;
+    background: red!important;
+}
+
+.submenuactive {
+    color: #fff!important;
+}
+
+.submenuactive::before {
+    content: ""!important;
+    border-radius: 50%!important;
+    position: absolute!important;
+    top: 23px!important;
+    left: 26px!important;
+    width: 6px!important;
+    height: 6px!important;
+    background: red!important;
+    z-index: 1000!important;
+}
+
+.activeMenu::after {
+    content: ""!important;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+    width: 4px!important;
+    height: 100%!important;
+    background: red!important;
+}
+
+.activeMenu {
+    color: #fff!important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-item li:hover>a:before {
+    background: red;
+}
+
+.nav-item li:hover>a>:before {
+    background: transparent;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    color: #fff;
+}
+
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
+    background-color: transparent;
+}
+
+.nav-icon {
+    margin-right: 7px !important;
+}
+
+.nav-itemalon-icon {
+    margin-left: 20px !important;
+}
+
+
+/*Fin estilos menu dinamico*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/*Cambio de tamañano de ng-select para que quede igual que un form-control*/
+
+.ng-select.ng-select-single .ng-select-container {
+    height: 36px!important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {Component, Input, OnInit, ViewChild, Renderer2} from '@angular/core';
 import { NavigationModel } from '../../../../Models/Navigations/Navigation.model';
+import {animate, style, transition, trigger, state, group} from '@angular/animations';
 
 @Component({
   selector: 'app-nav-collapse',
@@ -8,56 +8,69 @@ import { NavigationModel } from '../../../../Models/Navigations/Navigation.model
   styleUrls: ['./nav-collapse.component.scss'],
   animations: [
     trigger('slideInOut', [
-      transition(':enter', [
-        style({transform: 'translateY(-100%)', display: 'block'}),
-        animate('250ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        animate('250ms ease-in', style({transform: 'translateY(-100%)'}))
-      ])
-    ])
-  ],
+      state('in', style({
+          'max-height': '100%', opacity: '1', visibility: 'visible'
+      })),
+      state('out', style({
+          'max-height': '0px', opacity: '0', visibility: 'hidden', padding: '0px'
+      })),
+      transition('in => out', [group([
+          animate('700ms ease-in-out', style({
+              opacity: '0'
+          })),
+          animate('600ms ease-in-out', style({
+              'max-height': '0px'
+          })),
+          animate('600ms ease-in-out', style({
+             padding: '0px'
+          })),
+          animate('900ms ease-in-out', style({
+              visibility: 'hidden'
+          }))
+      ]
+      )]),
+      transition('out => in', [group([
+          animate('1ms ease-in-out', style({
+              visibility: 'visible'
+          })),
+          animate('600ms ease-in-out', style({
+            padding: '15px 0'
+          })),
+          animate('600ms ease-in-out', style({
+              'max-height': '100%'
+          })),
+          animate('800ms ease-in-out', style({
+              opacity: '1'
+          }))
+      ]
+      )])
+  ])
+  ]
 })
+
 export class NavCollapseComponent implements OnInit {
-  public visible;
+  @ViewChild('itemCollapsed', { static: false }) arrowCollapsed;
+
   @Input() item: NavigationModel;
 
-  constructor() {
-    this.visible = false;
+  animationState = 'out';
+
+  constructor(private renderer: Renderer2) {
   }
 
   ngOnInit() {
   }
 
-  navCollapse(e) {
-    this.visible = !this.visible;
-
-    let parent = e.target;
-    parent = parent.parentElement;
-
-
-    const sections = document.querySelectorAll('.pcoded-hasmenu');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < sections.length; i++) {
-      if (sections[i] !== parent) {
-        sections[i].classList.remove('pcoded-trigger');
-      }
+  navCollapse() {
+    this.animationState = this.animationState === 'out' ? 'in' : 'out';
+    // se valida si se esta desplegando el menu
+    if (this.arrowCollapsed.nativeElement.classList.contains('fa-angle-right')) {
+        this.renderer.removeClass(this.arrowCollapsed.nativeElement, 'fa-angle-right');
+        this.renderer.addClass(this.arrowCollapsed.nativeElement, 'fa-angle-down');
+    } else {
+      this.renderer.removeClass(this.arrowCollapsed.nativeElement, 'fa-angle-down');
+      this.renderer.addClass(this.arrowCollapsed.nativeElement, 'fa-angle-right');
     }
-
-    let firstParent = parent.parentElement;
-    let preParent = parent.parentElement.parentElement;
-    if (firstParent.classList.contains('pcoded-hasmenu')) {
-      do {
-        firstParent.classList.add('pcoded-trigger');
-        firstParent = firstParent.parentElement.parentElement.parentElement;
-      } while (firstParent.classList.contains('pcoded-hasmenu'));
-    } else if (preParent.classList.contains('pcoded-submenu')) {
-      do {
-        preParent.parentElement.classList.add('pcoded-trigger');
-        preParent = preParent.parentElement.parentElement.parentElement;
-      } while (preParent.classList.contains('pcoded-submenu'));
-    }
-    parent.classList.toggle('pcoded-trigger');
   }
 
 }

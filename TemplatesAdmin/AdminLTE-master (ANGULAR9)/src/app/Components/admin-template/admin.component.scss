@@ -1,13 +1,8 @@
-/*Estilos de contenedor*/
-
-.content-wrapper {
-    min-height: calc(100vh - 114px);
-    height: 100%;
-}
-
-
-/*Sombras*/
-
-.elevation-4 {
-    box-shadow: 5px 6px 5px rgba(1, 1, 10, 0.50)!important;
+.movefixedbottomtop {
+    position: relative !important;
+    top: 57px !important;
+    height: calc(100% - 114px) !important;
+    z-index: auto !important;
+    margin-bottom: 57px;
+    margin-left: 240px !important;
 }

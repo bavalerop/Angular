@@ -1,62 +1,13 @@
-<div class="wrapper">
-    <app-header (toggleMenuSidebar)="toggleMenuSidebar()"></app-header>
+<app-scroll-bottom>
+</app-scroll-bottom>
+<app-header (toggleMenuSidebar)="toggleMenuSidebar()" [userData]="userData"></app-header>
 
-    <app-menu-sidebar (mainSidebarHeight)="mainSidebarHeight($event)"></app-menu-sidebar>
+<app-menu-sidebar [userData]="userData" [companyData]="companyData"></app-menu-sidebar>
 
-    <div #contentWrapper class="content-wrapper">
-        <router-outlet></router-outlet>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <app-footer></app-footer>
-    <aside class="control-sidebar control-sidebar-dark"></aside>
-    <div id="sidebar-overlay" (click)="toggleMenuSidebar()"></div>
+
+<div #contentWrapper class="content-wrapper movefixedbottomtop">
+    <router-outlet></router-outlet>
 </div>
+
+<app-footer></app-footer>
+<app-scroll-top></app-scroll-top>

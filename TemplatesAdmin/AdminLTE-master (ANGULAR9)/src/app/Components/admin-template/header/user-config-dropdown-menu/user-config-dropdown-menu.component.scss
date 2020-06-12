@@ -1,0 +1,37 @@
+.dropdown {
+    .nav-link {
+        cursor: pointer;
+    }
+}
+
+.userIcon {
+    font-size: 25px;
+    color: #5a5a5a;
+    position: relative;
+    bottom: 8px;
+}
+
+.userIcon:hover {
+    color: black;
+}
+
+.cursorFalse {
+    cursor: auto;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #000000;
+    text-decoration: none;
+    background-color: #e6e7e8;
+    width: 90%;
+    margin-bottom: 1px;
+}
+
+.borderuser {
+    box-shadow: none!important;
+    border-top: 3px solid #0f0e35!important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    border-left: 0px !important;
+}

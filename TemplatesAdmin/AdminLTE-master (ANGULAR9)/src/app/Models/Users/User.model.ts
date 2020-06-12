@@ -1,3 +1,5 @@
+import { RolModel } from './Rol.model';
+
 export class UserModel {
 
     constructor(public id: number,
@@ -11,5 +13,9 @@ export class UserModel {
                 public mail: string,
                 public address: string,
                 public phone: number,
-                public logo: string) {}
+                public logo: string,
+                public state: number,
+                public createFech: Date,
+                public updateFech: Date,
+                public rol: RolModel) {}
 }

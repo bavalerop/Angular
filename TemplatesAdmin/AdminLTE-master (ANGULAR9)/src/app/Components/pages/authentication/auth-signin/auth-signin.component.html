@@ -1,0 +1,25 @@
+<div class="auth-wrapper align-items-stretch aut-bg-img">
+    <div class="flex-grow-1">
+        <div class="h-100 d-md-flex align-items-center auth-side-img">
+            <div class="col-sm-10 auth-content w-auto"><img src="assets/img/auth/Signin1.png" alt="" class="img-fluid">
+                <h1 class="text-white my-4">¡Bienvenido de vuelta!</h1>
+                <h4 class="text-white font-weight-normal">Inicie sesión en su cuenta y explore el Panel de control de administracion.<br>No olvides lo que tenias que hacer.</h4>
+            </div>
+        </div>
+        <div class="auth-side-form">
+            <div class="auth-content" (keydown.enter)="onEnter($event)">
+                <h3 class="mb-4 f-w-400">Iniciar sesión</h3>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend"><span class="input-group-text"><i  class="feather icon-mail"></i></span></div><input type="email" placeholder="UserName" class="form-control" autocomplete="off" autofocus></div>
+                <div class="input-group mb-4">
+                    <div class="input-group-prepend"><span class="input-group-text"><i  class="feather icon-lock"></i></span></div><input type="password" placeholder="Password" class="form-control" autocomplete="off"></div>
+                <div class="form-group text-left mt-2">
+                </div><button class="btn btn-block btn-primary mb-0" (click)="onEnter($event)">Siguiente</button>
+                <div class="text-center">
+                    <div class="saprator my-4"><span>OR</span></div>
+                    <p class="mb-2 text-muted">¿Se te olvidó tu contraseña? <a class="f-w-400" href="/gradient-able/angular/default/auth/reset-password-v2">Restablecer</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

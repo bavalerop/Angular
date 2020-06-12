@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public redes: string;
+  public autor: string;
+  public fecha: Date;
+  public anio: string;
+
+  constructor() {
+    this.fecha = new Date();
+    this.anio = this.fecha.getFullYear().toString();
+    this.autor = 'Brayan Valero';
+    this.redes = 'https://www.linkedin.com/in/brayan-andrés-valero-pinzón-512900159';
+  }
 
   ngOnInit() {
   }

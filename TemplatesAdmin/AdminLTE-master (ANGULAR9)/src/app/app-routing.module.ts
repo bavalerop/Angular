@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     loadChildren: () => import('./Components/admin-template/admin-template.module').then(module => module.AdminTemplateModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./Components/pages/authentication/auth.module').then(module => module.AuthModule)
   },
   { path: '**', redirectTo: '' }
 ];

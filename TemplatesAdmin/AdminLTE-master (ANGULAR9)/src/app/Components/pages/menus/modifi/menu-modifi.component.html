@@ -1,0 +1,334 @@
+<app-spinner [loading]="load"></app-spinner>
+<!-- [ Main Content ] start -->
+<div class="pcoded-content">
+    <!-- [ Main Content ] start -->
+    <div class="row">
+        <!-- [ tabs ] start -->
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body" style="padding: 0.7rem!important;">
+                    <div>
+                        <h5 style="margin-bottom: 0px !important;">Menus</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-left">
+                        <li [ngbNavItem]="1">
+                            <a ngbNavLink><b>Tipo</b> Group </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col">
+                                            <label>Selecciona el Menu Group a editar</label>
+                                            <ng-select [items]="menuGroup" [virtualScroll]="true" bindLabel="title" bindValue="" (change)="groupSelect()" placeholder="Seleccione el Menu Group" [(ngModel)]="menuGroupSelect">
+                                            </ng-select>
+                                            <hr>
+                                        </div>
+                                        <form [formGroup]="formGroup" class="mt-1" (ngSubmit)="onSubmitGroup()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid" *ngIf="formGroup.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formGroup.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col" style="text-align: center;">
+                                                    <div class="col-md-10">
+                                                        <label>Activo</label>
+                                                        <div class="switch switch-primary m-r-10">
+                                                            <input type="checkbox" id="switch-3" formControlName="state">
+                                                            <label for="switch-3" class="cr"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <div class="col-md-4" style="text-align: center;"></div>
+                                                    <button [disabled]="!formGroup.valid" type="submit" class="btn btn-success btn-md" disabled style="margin-right:20px;">Guardar</button>
+                                                    <button [disabled]="!menuGroupSelect" (click)="cancelGroup()" type="button" class="btn btn-danger btn-md" disabled style="margin-right:20px;">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <h6>Menu Group</h6>
+                                        <p>Este tipo de menu es el que engloba el resto de sub-menus, se puede ver como el menu abuelo.</p>
+                                        <img class="img-fluid imgmenu" src="../../../../../assets/img/menus/Menus.PNG" alt="Menus picture" />
+                                        <p style="margin-top: 1rem;">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado"maestros"</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="2">
+                            <a ngbNavLink><b>Tipo</b> Collapsed </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col">
+                                            <label>Selecciona el Menu Collapsed a editar</label>
+                                            <ng-select [items]="menuCollapsed" [virtualScroll]="true" bindLabel="title" bindValue="" (change)="collapsedSelect()" placeholder="Seleccione el Menu Collapsed" [(ngModel)]="menuCollapsedSelect">
+                                            </ng-select>
+                                            <hr>
+                                        </div>
+                                        <form [formGroup]="formCollapsed" class="mt-1" (ngSubmit)="onSubmitCollapsed()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid" *ngIf="formCollapsed.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formCollapsed.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid" *ngIf="formCollapsed.get('icon').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formCollapsed.get('icon').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid" *ngIf="formCollapsed.get('route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formCollapsed.get('route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navGroup" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Group" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid" *ngIf="formCollapsed.get('groupId').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formCollapsed.get('groupId').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" style="text-align: center;">
+                                                    <label>Activo</label>
+                                                    <div class="switch switch-primary m-r-10">
+                                                        <input type="checkbox" id="switch-3" formControlName="state">
+                                                        <label for="switch-3" class="cr"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <div class="col-md-4" style="text-align: center;"></div>
+                                                    <button [disabled]="!formCollapsed.valid" type="submit" class="btn btn-success btn-md" disabled style="margin-right:20px;">Guardar</button>
+                                                    <button [disabled]="!menuCollapsedSelect" (click)="cancelCollapsed()" type="button" class="btn btn-danger btn-md" disabled style="margin-right:20px;">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Menu Collapsed</h6>
+                                        <p>Este tipo de menu es el que engloba sub-menus, pero es hijo de un menu tipo group, se puede ver como el menu padre.</p>
+                                        <img class="img-fluid imgmenu" src="../../../../../assets/img/menus/Menus.PNG" alt="Menus picture" />
+                                        <p style="margin-top: 1rem;">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado"Menus"</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="3">
+                            <a ngbNavLink><b>Tipo</b> Item </a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col">
+                                            <label>Selecciona el Menu Item a editar</label>
+                                            <ng-select [items]="menuItem" [virtualScroll]="true" bindLabel="title" bindValue="" (change)="itemSelect()" placeholder="Seleccione el Menu Item" [(ngModel)]="menuItemSelect">
+                                            </ng-select>
+                                            <hr>
+                                        </div>
+                                        <form [formGroup]="formItem" class="mt-1" (ngSubmit)="onSubmitItem()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid" *ngIf="formItem.get( 'title').hasError( 'required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItem.get( 'title').hasError( 'required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid" *ngIf="formItem.get( 'icon').hasError( 'required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItem.get( 'icon').hasError( 'required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid" *ngIf="formItem.get( 'route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItem.get( 'route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navGroup" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Group" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid" *ngIf="formItem.get( 'groupId').hasError( 'required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItem.get( 'groupId').hasError( 'required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" style="text-align: center;">
+                                                    <label>Activo</label>
+                                                    <div class="switch switch-primary m-r-10">
+                                                        <input type="checkbox" id="switch-3" formControlName="state">
+                                                        <label for="switch-3" class="cr"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <div class="col-md-4" style="text-align: center;"></div>
+                                                    <button [disabled]="!formItem.valid" type="submit" class="btn btn-success btn-md" disabled style="margin-right:20px;">Guardar</button>
+                                                    <button [disabled]="!menuItemSelect" (click)="cancelItem()" type="button" class="btn btn-danger btn-md" disabled style="margin-right:20px;">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Menu Item</h6>
+                                        <p>Este tipo de menu es el que engloba sub-menus, pero es hijo de un menu tipo group, se puede ver como el menu padre, sin embargo este no tiene hijos.</p>
+                                        <img class="img-fluid imgmenu" src="../../../../../assets/img/menus/Menus.PNG" alt="Menus picture" />
+                                        <p style="margin-top: 1rem;">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado"Menus" pero sin hijos y sin flecha para desplegar.</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                        <li [ngbNavItem]="4">
+                            <a ngbNavLink><b>Tipo</b> Item Alone</a>
+                            <ng-template ngbNavContent>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col">
+                                            <label>Selecciona el Menu Item Alone a editar</label>
+                                            <ng-select [items]="menuItemAlone" [virtualScroll]="true" bindLabel="title" bindValue="" (change)="itemAloneSelect()" placeholder="Seleccione el Menu Item Alone" [(ngModel)]="menuItemAloneSelect">
+                                            </ng-select>
+                                            <hr>
+                                        </div>
+                                        <form [formGroup]="formItemAlone" class="mt-1" (ngSubmit)="onSubmitItemAlone()">
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Titulo</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo del menu" formControlName="title" autofocus>
+                                                    <div class="is-invalid" *ngIf="formItemAlone.get('title').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItemAlone.get('title').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Icono</label>
+                                                    <input type="text" class="form-control" placeholder="Icono" formControlName="icon">
+                                                    <div class="is-invalid" *ngIf="formItemAlone.get('icon').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItemAlone.get('icon').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label>Ruta</label>
+                                                    <input type="text" class="form-control" placeholder="Ruta de la pagina" formControlName="route">
+                                                    <div class="is-invalid" *ngIf="formItemAlone.get('route').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItemAlone.get('route').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label>Menu Padre</label>
+                                                    <ng-select [items]="navCollapsed" [virtualScroll]="true" bindLabel="title" bindValue="id" placeholder="Seleccione el Menu Collapsed" formControlName="groupId">
+                                                    </ng-select>
+                                                    <div class="is-invalid" *ngIf="formItemAlone.get('groupId').hasError('required')">
+                                                        <span class="badge badge-danger f-size-12 mt-1 m-r-5">Campo requerido</span>
+                                                    </div>
+                                                    <div class="is-invalid" *ngIf="!formItemAlone.get('groupId').hasError('required')">
+                                                        <span class="badge badge-success f-size-12 mt-1 m-r-5">Campo correcto</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" style="text-align: center;">
+                                                    <label>Activo</label>
+                                                    <div class="switch switch-primary m-r-10">
+                                                        <input type="checkbox" id="switch-3" formControlName="state">
+                                                        <label for="switch-3" class="cr"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <div class="col-md-4" style="text-align: center;"></div>
+                                                    <button [disabled]="!formItemAlone.valid" type="submit" class="btn btn-success btn-md" disabled style="margin-right:20px;">Guardar</button>
+                                                    <button [disabled]="!menuItemAloneSelect" (click)="cancelItemAlone()" type="button" class="btn btn-danger btn-md" disabled style="margin-right:20px;">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Menu Item Alone</h6>
+                                        <p>Este tipo de menu es el hijo de los menus Collapsed, Ademas es nieto de un menu tipo group, se puede ver como el menu nieto, sin embargo este no tiene hijos.</p>
+                                        <img class="img-fluid imgmenu" src="../../../../../assets/img/menus/Menus.PNG" alt="Menus picture" />
+                                        <p style="margin-top: 1rem;">Como se puede ver en la imagen el tipo de menu al que se hace referencia es el llamado"Crear, Modificar Borrar".</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+                    </ul>
+
+                    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                    <!-- [ tabs ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+</div>
