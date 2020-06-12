@@ -1,0 +1,19 @@
+					*************************
+					**PROYECTO EN ANGULAR 9**
+					*************************
+--Instalar angular CLI
+-abrir CMD como administrador 
+* npm install -g @angular/cli
+
+--Crear proyecto pero con la carpeta con otro nombre
+* ng new clitest -directory="ej1"
+--Crear un componente saltando pruebas
+* ng g c pages/about --skip-tests
+--Crear componente sin carpeta para controlar componentes internos
+* ng g c pages/mainpage -skip-tests --flat
+
+--Crear servicio y carpeta de servicio
+* ng g s services/usuario --skip-tests
+
+--Crear Guard
+* ng g g guards/auth --skip-tests
